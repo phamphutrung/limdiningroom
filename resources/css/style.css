@@ -1,0 +1,205 @@
+/* @font-face {
+    font-family: "Roboto Condensed";
+    src: url("../fonts/RobotoCondensed-Regular.ttf"),
+        url("../fonts/RobotoCondensed-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: "Kristi";
+    src: url(../fonts/Kristi-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url(../fonts/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url(../fonts/RobotoCondensed-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url(../fonts/RobotoCondensed-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url(../fonts/RobotoCondensed-Bold.ttf);
+    font-weight: bolder;
+}
+
+:root {
+    --primary: #d68408;
+    --light: #f1f8ff;
+    --dark: #0f172b;
+}
+
+body {
+    font-family: "Roboto Condensed";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 20px 0;
+    color: #000;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.23em;
+    letter-spacing: 0.09em;
+}
+
+.text-detail {
+    letter-spacing: 0.09em;
+    font-weight: 300;
+}
+
+/*** Navbar ***/
+.navbar-dark .navbar-nav .nav-link {
+    position: relative;
+    margin-left: 25px;
+    padding: 35px 0;
+    font-size: 15px;
+    color: var(--light) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    transition: 0.9s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 20px 0;
+}
+
+/* .navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary) !important;
+} */
+/* .navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+} */
+
+.sticky-top {
+    max-height: 60px;
+}
+
+/* .navbar-dark .navbar-brand img {
+    max-height: 70px;
+    transition: 0.9s;
+} */
+
+/* .sticky-top.navbar-dark .navbar-brand img {
+    max-height: 45px;
+} */
+
+@media (max-width: 991.98px) {
+    .sticky-top.navbar-dark {
+        position: relative;
+    }
+
+    .navbar-dark .navbar-collapse {
+        margin-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        margin-left: 0;
+    }
+
+    .navbar-dark .navbar-brand img {
+        max-height: 45px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background: transparent !important;
+    }
+
+    .sticky-top.navbar-dark {
+        position: fixed;
+        background: #0f172bcb !important;
+        transition: 1s;
+    }
+}
+/* ** end navbar ** */
+
+.btn-global {
+    background-color: var(--dark);
+    color: var(--light);
+    transition: 0.3s;
+    letter-spacing: 0.2rem;
+    padding: 10px 51px;
+    border: 1px solid white;
+}
+
+.btn-global:hover {
+    background-color: rgb(255, 255, 255);
+    color: var(--dark);
+}
+
+.line {
+    width: 6em;
+    border: 1px solid var(--dark);
+    margin: 2em auto;
+}
+
+.footer {
+    background-color: #ece2e277;
+}
+
+.logo-footer {
+    width: 10em;
+    margin-top: 8em;
+    margin-bottom: 5em;
+}
+
+/*** Food Menu ***/
+.nav-pills .nav-item .active {
+    border-bottom: 2px solid var(--dark);
+}
+
+.section {
+    margin: 5rem auto;
+}
+
+/* back to top */
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+.back-to-top span {
+    font-size: 4em;
+    font-weight: 100;
+    transition: all ease 0.2s;
+}
+
+.back-to-top:hover span {
+    font-size: 4.1em;
+}
+/* end back to top */
+
+.text-cover {
+    font-family: "Kristi";
+    text-transform: capitalize;
+    font-size: 6em;
+}
