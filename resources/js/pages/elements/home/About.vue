@@ -15,7 +15,8 @@
                         </div>
                         <div class="col-6 text-end">
                             <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s"
-                                src="http://www.nicdarkthemes.com/themes/restaurant/wp/demo/restaurant/wp-content/uploads/sites/2/2019/01/product-01.jpg">
+                                src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/315708540_156068537174944_6174339043161374794_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=tZ4rdPXszjwAX8xGj8M&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-tpe1-1.xx&oh=00_AfAqO2qtxzEZbKUFQXpNi1Ku_ESu0QzxfIxdvraIWr3V0A&oe=6396BF2F">
+
                         </div>
                         <div class="col-6 text-end">
                             <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" style="height: 100%;"
