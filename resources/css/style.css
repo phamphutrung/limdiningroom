@@ -11,6 +11,11 @@
     src: url(../fonts/Kristi-Regular.ttf);
 }
 
+@font-face {
+    font-family: "Roboto Condensed";
+    src: url(../fonts/RobotoCondensed-Regular.ttf);
+}
+
 :root {
     --primary: #d68408;
     --light: #f1f8ff;
