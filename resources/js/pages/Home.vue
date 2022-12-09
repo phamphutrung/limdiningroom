@@ -1,26 +1,28 @@
 <template>
     <div>
-        <v-carousel hide-delimiter-background style="height: 100vh;">
-            <template v-slot:prev="{ props }">
-                <left-outlined @click="props.onClick" class="text-light btn-slide" />
-            </template>
-            <v-carousel-item
-                src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
-                cover></v-carousel-item>
-            <v-carousel-item
-                src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
-                cover></v-carousel-item>
-            <v-carousel-item
-                src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
-                cover></v-carousel-item>
-            <v-carousel-item
-                src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
-                cover>
-            </v-carousel-item>
-            <template v-slot:next="{ props }">
-                <right-outlined @click="props.onClick" class="text-light btn-slide" />
-            </template>
-        </v-carousel>
+        <div style="position: relative;">
+            <v-carousel hide-delimiter-background style="height: 100vh;">
+                <template v-slot:prev="{ props }">
+                    <left-outlined @click="props.onClick" class="text-light btn-slide" />
+                </template>
+                <v-carousel-item
+                    src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
+                    cover></v-carousel-item>
+                <v-carousel-item
+                    src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
+                    cover></v-carousel-item>
+                <v-carousel-item
+                    src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
+                    cover></v-carousel-item>
+                <v-carousel-item
+                    src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
+                    cover>
+                </v-carousel-item>
+                <template v-slot:next="{ props }">
+                    <right-outlined @click="props.onClick" class="text-light btn-slide" />
+                </template>
+            </v-carousel>
+        </div>
 
         <!-- menu -->
         <div class="container py-6 section">
