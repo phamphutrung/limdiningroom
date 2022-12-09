@@ -56,7 +56,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn-global border">Read More</button>
+                    <button class="btn-global border">READ MORE</button>
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@
                     </div>
                     <div class="item-reserve wow fadeInDown" data-wow-delay="0.4s">
                         <router-link :to="{ name: 'bookTable', query: { amount: amountPerson, date: date, time: time }}">
-                            <button class="btn-global border">Reserve</button>
+                            <button class="btn-global border">RESERVE</button>
                         </router-link>
                     </div>
                 </div>
