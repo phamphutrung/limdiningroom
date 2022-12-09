@@ -6,6 +6,7 @@ import Menu from './pages/Menu.vue';
 import Contact from './pages/Contact.vue';
 import Reserve from './pages/Reserve.vue';
 import About from './pages/About.vue';
+import Event from './pages/Event.vue';
 import Gallery from './pages/Gallery.vue';
 // import Login from './pages/Login.vue';
 import NotFound from './pages/NotFound.vue';
@@ -37,6 +38,11 @@ const routes = [
                 path: '/gallery',
                 name: 'gallery',
                 component: Gallery
+            },
+            {
+                path: '/event',
+                name: 'event',
+                component: Event
             },
             {
                 path: '/contact',

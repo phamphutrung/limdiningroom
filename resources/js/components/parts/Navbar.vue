@@ -23,6 +23,9 @@
                 <router-link :to="{ name: 'gallery' }" class="nav-item nav-link"
                     :class="{ active: this.$route.name == 'gallery' }"><span
                         class="text-menu">Gallery</span></router-link>
+                <router-link :to="{ name: 'event' }" class="nav-item nav-link"
+                    :class="{ active: this.$route.name == 'event' }"><span
+                        class="text-menu">Event</span></router-link>
                 <router-link :to="{ name: 'contact' }" class="nav-item nav-link"
                     :class="{ active: this.$route.name == 'contact' }"><span
                         class="text-menu">Contact</span></router-link>
