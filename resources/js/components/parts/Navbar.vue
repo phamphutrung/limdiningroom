@@ -54,6 +54,7 @@
 .text-menu {
     letter-spacing: .16em;
     font-weight: bolder;
+    /* font-family: ; */
 }
 
 .text-menu::after {
