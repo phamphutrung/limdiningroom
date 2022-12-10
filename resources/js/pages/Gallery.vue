@@ -5,7 +5,6 @@
                 <div class="col-md-6 mx-auto text-light text-center wow zoomIn" data-wow-delay="0.1s"
                     style="margin-top: 27%;">
                     <p class="text-light text-cover" style="font-size: 6rem;">Gallery</p>
-                    <!-- <button class="border px-6 py-2" type="button" @click="show">Play</button> -->
                 </div>
             </div>
         </div>
@@ -13,10 +12,11 @@
 
 
     <div class="container-fluid">
-        <div class="row mx-auto mt-6">
-            <div class="col-md-2 mx-auto">
+        <div class="row mt-6 d-flex justify-center">
+            <div class="col-md-5 col-sm-5 col-lg-4 text-center">
                 <v-tabs fixed-tabs bg-color="" v-model="tab">
-                    <v-tab v-for="item in items" :key="item" :value="item" s>
+                    <play-circle-outlined class="m-4" @click="show" style="font-size: 1.5em;" />
+                    <v-tab v-for="item in items" :key="item" :value="item">
                         {{ item }}
                     </v-tab>
                 </v-tabs>
@@ -26,8 +26,9 @@
             <v-window-item :value="'food'">
                 <div class="images section" v-viewer>
                     <div class="row mx-5">
-                        <div class="col-lg-3 col-md-4 col-sm-6 g-4" v-for="(image, index) in images1" :key="index">
-                            <img class="img-fluid w-100 h-100 w-100 wow fadeInUp" :data-wow-delay="`0.${index + 1}s`"
+                        <div class="col-lg-3 col-md-4 col-sm-6 image-gallery wow fadeInUp"
+                            v-for="(image, index) in images1" :key="index">
+                            <img class="img-fluid w-100 h-100 w-100" :data-wow-delay="`0.${index + 1}s`"
                                 :style="{ objectFit: 'cover', overflow: 'hidden' }" :src="image">
                         </div>
                     </div>
@@ -36,8 +37,9 @@
             <v-window-item :value="'env'">
                 <div class="images section" v-viewer>
                     <div class="row mx-5">
-                        <div class="col-lg-3 col-md-4 col-sm-6 g-4" v-for="(image, index) in images2" :key="index">
-                            <img class="img-fluid w-100 h-100 wow fadeInUp" :data-wow-delay="`0.${index + 1}s`"
+                        <div class="col-lg-3 col-md-4 col-sm-6 image-gallery wow fadeInUp"
+                            v-for="(image, index) in images2" :key="index">
+                            <img class="img-fluid w-100 h-100" :data-wow-delay="`0.${index + 1}s`"
                                 :style="{ objectFit: 'cover', overflow: 'hidden' }" :src="image">
                         </div>
                     </div>
@@ -48,9 +50,13 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
+<script>
+import { PlayCircleOutlined } from '@ant-design/icons-vue';
+
+export default {
+    components: {
+        PlayCircleOutlined
+    },
     data() {
         return {
             tab: 'food',
@@ -62,6 +68,10 @@ export default defineComponent({
                 "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/315704091_156068833841581_1841167127497613186_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=q90GVnBG-AwAX_r-NT9&_nc_ht=scontent-tpe1-1.xx&oh=00_AfDCHOUJdlviCgSxBHnqNgQ9AG2OOWHu00zdSJXHQ_lEmQ&oe=6396C28B",
                 "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/315708540_156068537174944_6174339043161374794_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=tZ4rdPXszjwAX_Ph5MC&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-tpe1-1.xx&oh=00_AfC4DhJHO3d32vd0dktGJBYuDFy1wKnHi9704PFFCHpPZw&oe=6396BF2F",
                 "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313293583_147510768030721_1421212071400898474_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=uA6HUxtMhOcAX_9ZUSj&_nc_ht=scontent-tpe1-1.xx&oh=00_AfByc5j6K8C1rZgyFEHUPy0Nj1WYAEVDMKpOvnz304y7hg&oe=639668B0",
+                "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313033502_147510431364088_2013833963407046724_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=lx3sH8oAam8AX-2FmzV&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-tpe1-1.xx&oh=00_AfD7xjvPd-gcGH7aaQ7tNmZI3sjLuzfFTkW9pFgzpF-LbQ&oe=6397717F",
+                "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313099464_146489248132873_5924546961099972048_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=URlsBNIJ6yoAX9rGbMC&_nc_ht=scontent-tpe1-1.xx&oh=00_AfBfkuL7iDvpAIvy8L18Y8egGBdaFePytk1FyHqfgINq5A&oe=63965606",
+                "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/312799635_146473178134480_2208022492062408230_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=Nn439KOFgWoAX-r2ZBg&_nc_ht=scontent-tpe1-1.xx&oh=00_AfBvEZPeXWF6Vg2zQ-KiOwOV5OsbAw2sA5x9ZZw4XTWz_A&oe=63980DD7",
+                "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313132589_146473124801152_4615414757975818487_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=cpUfhySTZcgAX9wYCdj&_nc_ht=scontent-tpe1-1.xx&oh=00_AfD15FKsFIGiw7QrlDpB0dhqfimK0UXofP9QkFnpKlHrVg&oe=6397B947",
                 "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313033502_147510431364088_2013833963407046724_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=lx3sH8oAam8AX-2FmzV&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-tpe1-1.xx&oh=00_AfD7xjvPd-gcGH7aaQ7tNmZI3sjLuzfFTkW9pFgzpF-LbQ&oe=6397717F",
                 "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313099464_146489248132873_5924546961099972048_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=URlsBNIJ6yoAX9rGbMC&_nc_ht=scontent-tpe1-1.xx&oh=00_AfBfkuL7iDvpAIvy8L18Y8egGBdaFePytk1FyHqfgINq5A&oe=63965606",
                 "https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/312799635_146473178134480_2208022492062408230_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=Nn439KOFgWoAX-r2ZBg&_nc_ht=scontent-tpe1-1.xx&oh=00_AfBvEZPeXWF6Vg2zQ-KiOwOV5OsbAw2sA5x9ZZw4XTWz_A&oe=63980DD7",
@@ -78,11 +88,11 @@ export default defineComponent({
     methods: {
         show() {
             this.$viewerApi({
-                images: this.images1,
+                images: [...this.images1, ...this.images2],
             })
         },
     },
-})
+}
 </script>
 
 
@@ -104,11 +114,43 @@ export default defineComponent({
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(212, 178, 28, 0);
+    background-color: rgba(175, 147, 22, 0);
     z-index: -1;
 }
 
-.section {
-    margin: 5rem 0;
+.image-gallery {
+    position: relative;
+    z-index: 2;
+    padding: .7em;
+    cursor: pointer;
+    overflow: hidden;
+    background-clip: content-box;
+    box-sizing: border-box;
+}
+
+.image-gallery:hover::after {
+    height: 0px;
+}
+
+.image-gallery:hover img {
+    transform: scale(101%);
+}
+
+.image-gallery::after {
+    padding: .7em;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(35, 114, 150, 0.185);
+    z-index: 3;
+    background-clip: content-box;
+    transition: 0.7s;
+}
+
+.image-gallery img {
+    transition: 0.5s;
 }
 </style>
