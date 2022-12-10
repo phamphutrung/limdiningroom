@@ -25,33 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{ asset('static/lib/wow/wow.min.js') }}"></script>
-    <script>
-        new WOW().init();
-
-        // Sticky Navbar
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 90) {
-                $('.navbar').addClass('sticky-top shadow-sm');
-            } else {
-                $('.navbar').removeClass('sticky-top shadow-sm');
-            }
-        });
-
-        // Back to top button
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 300) {
-                $('.back-to-top').fadeIn('slow');
-            } else {
-                $('.back-to-top').fadeOut('slow');
-            }
-        });
-        $('.back-to-top').click(function() {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 1500, 'easeInOutExpo');
-            return false;
-        });
-    </script>
+    <script src="{{ asset('static/js/main.js') }}"></script>
 </body>
 
 </html>
