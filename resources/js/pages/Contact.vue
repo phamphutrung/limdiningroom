@@ -2,8 +2,9 @@
     <div class="cover-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mx-auto text-light text-center wow zoomIn" data-wow-delay="0.1s" style="margin-top: 27%;">
-                    <p class="text-light m-0" style="font-family: 'Kristi'; font-size: 3em;">Find Us</p>
+                <div class="col-md-6 mx-auto text-light text-center wow zoomIn" data-wow-delay="0.1s"
+                    style="margin-top: 27%;">
+                    <p class="text-light m-0" :style="{ fontFamily: 'Kristi', fontSizeize: '3em' }">Find Us</p>
                     <p class="text-light m-0 text-cover">Contact</p>
                 </div>
             </div>
@@ -35,16 +36,43 @@
                 <div class="col-md-5 mx-auto text-center wow zoomIn" data-wow-delay="0.8s">
                     <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Talk With Us</h2>
                     <div class="line"></div>
-                    <v-text-field label="Name" variant="underlined"></v-text-field>
-                    <v-text-field label="Email" variant="underlined"></v-text-field>
-                    <v-textarea label="Message" variant="underlined"></v-textarea>
-                    <button class="text-uppercase border btn-global"
-                        style="font-size: 13px; letter-spacing: .2em;">Send</button>
+                    <v-text-field v-model="message.name" clearable label="Name" variant="underlined"></v-text-field>
+                    <v-text-field v-model="message.email" clearable label="Email" variant="underlined"></v-text-field>
+                    <v-textarea v-model="message.content" label="Message" variant="underlined"></v-textarea>
+                    <button @click="sendMessage" class="text-uppercase border btn-global"
+                        style="font-size: 13px; letter-spacing: .2em;">
+                        <span v-show="!sending">SEND</span>
+                        <half-circle-spinner :animation-duration="700" :size="20" v-if="sending" />
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+import { HalfCircleSpinner } from 'epic-spinners'
+export default {
+    components: {
+        HalfCircleSpinner
+    },
+    data() {
+        return {
+            message: {
+                name: '',
+                email: '',
+                content: ''
+            },
+            sending: false
+        }
+    },
+    methods: {
+        sendMessage() {
+            this.sending = !this.sending
+        }
+    }
+}
+</script>
 
 
 <style scoped>
@@ -71,5 +99,6 @@
 
 .section {
     margin: 5rem 0;
+    /* color: #737373; */
 }
 </style>
