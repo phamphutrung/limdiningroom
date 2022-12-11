@@ -1,13 +1,13 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-6 py-3 py-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 px-6">
         <a href="" class="navbar-brand">
             <div>
-                <h5 class="text-white animated slideInLeft">logo</h5>
+                <p class="text-white text-uppercase m-0 py-1 fw-bold animated slideInLeft" style="text-align: center; align-self: center;">logo</p>
                 <!-- <img src="static/img/logo.jpg" alt="Logo"> -->
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars"></span>
+            <span class="fa fa-bars text-light"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0 pe-4 animated fadeInDown">
