@@ -31,15 +31,22 @@
                 <router-link :to="{ name: 'about' }" class="nav-item nav-link"
                     :class="{ active: this.$route.name == 'about' }"><span class="text-menu">About</span></router-link>
             </div>
-            <!-- <router-link :to="{ name: 'bookTable' }"> <button
-                    class="text-uppercase btn-book border animated slideInRight"
-                    style="font-size: 13px; letter-spacing: .2em;">RESERVE</button></router-link> -->
-            <!-- <button @click="toggleDrawer" class="text-uppercase btn-book border animated slideInRight"
-                style="font-size: 13px; letter-spacing: .2em;"></button> -->
             <menu-outlined class="text-light me-6 d-none d-sm-none d-md-block animated slideInRight"
                 @click="toggleDrawer" style="font-size: 2em;" />
         </div>
     </nav>
+    <span class="wp-btn-right">
+        <button class="item-btn-right d-block ms-auto mb-2">
+            <a href="tel:0934740229">
+                <i class="fa-solid fa-phone-volume"></i> <span class="ms-2">Call Now</span>
+            </a>
+        </button>
+        <button class="item-btn-right d-block ms-auto mb-2">
+            <a href="http://fb.com/limdiningroom" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i> <span class="ms-2">Facebook</span>
+            </a>
+        </button>
+    </span>
     <a-drawer v-model:visible="visible" class="custom-class" closeIcon="" placement="right"
         @after-visible-change="afterVisibleChange">
         <template #extra>
@@ -73,12 +80,13 @@
 </template>
 
 <script>
-import { MenuOutlined, ArrowRightOutlined } from '@ant-design/icons-vue';
+import { MenuOutlined, ArrowRightOutlined, FacebookOutlined } from '@ant-design/icons-vue';
 
 export default {
     components: {
         MenuOutlined,
-        ArrowRightOutlined
+        ArrowRightOutlined,
+        FacebookOutlined
     }
     ,
     data() {
@@ -154,5 +162,44 @@ export default {
 } */
 .ant-drawer-header {
     border: none;
+}
+
+.wp-btn-right {
+    position: fixed;
+    top: 70%;
+    right: 0;
+    z-index: 100;
+
+}
+
+.wp-btn-right .item-btn-right {
+    padding: .8em 1.1em;
+    min-width: 3.5em;
+    background-color: var(--dark);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all .6s;
+}
+
+.wp-btn-right .item-btn-right a {
+    color: white;
+    transition: all .6s;
+    font-size: 1.1em;
+}
+
+.wp-btn-right .item-btn-right a span {
+    display: none;
+    transition: all .1s;
+}
+
+.wp-btn-right .item-btn-right:hover {
+    background-color: aliceblue;
+}
+
+.wp-btn-right .item-btn-right:hover a {
+    color: black;
+}
+
+.wp-btn-right .item-btn-right:hover a span {
+    display: inline;
 }
 </style>
