@@ -33,7 +33,7 @@
         </div>
         <div class="section">
             <div class="row">
-                <div class="col-md-5 mx-auto text-center wow zoomIn" data-wow-delay="0.8s">
+                <div class="col-md-5 mx-auto text-center wow zoomIn" data-wow-delay="1.3s">
                     <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Talk With Us</h2>
                     <div class="line"></div>
                     <v-text-field v-model="message.name" clearable label="Name" variant="underlined"></v-text-field>

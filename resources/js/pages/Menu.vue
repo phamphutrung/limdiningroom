@@ -12,7 +12,7 @@
         <div class="section">
             <div class="row text-center">
                 <div class="col-md-5 mx-auto">
-                    <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Choose what you like</h2>
+                    <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Eat what you love</h2>
                     <div class="line"></div>
                 </div>
             </div>

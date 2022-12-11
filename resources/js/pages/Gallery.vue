@@ -26,10 +26,16 @@
             <v-window-item :value="'food'">
                 <div class="images section" v-viewer>
                     <div class="row mx-5">
-                        <div class="col-lg-3 col-md-4 col-sm-6 image-gallery wow fadeInUp"
-                            v-for="(image, index) in images1" :key="index">
-                            <img class="img-fluid w-100 h-100 w-100" :data-wow-delay="`0.${index + 1}s`"
-                                :style="{ objectFit: 'cover', overflow: 'hidden' }" :src="image">
+                        <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" v-for="(image, index) in images1"
+                            :key="index">
+                            <div class="image-gallery">
+                                <img class="" :data-wow-delay="`0.${index + 1}s`"
+                                    :style="{ objectFit: 'cover', overflow: 'hidden' }" :src="image">
+                                <div class="title-gallery">
+                                    <p class="m-1 ms-2">Title image</p>
+                                    <p class="m-1 ms-2 text-detail">Description image</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,36 +127,38 @@ export default {
 .image-gallery {
     position: relative;
     z-index: 2;
-    padding: .7em;
+    margin-bottom: 1.5em;
     cursor: pointer;
     overflow: hidden;
     background-clip: content-box;
     box-sizing: border-box;
+    height: 20em;
+    transition: all 1s;
 }
 
-.image-gallery:hover::after {
-    height: 0px;
+.image-gallery:hover .title-gallery {
+    bottom: 0;
 }
 
-.image-gallery:hover img {
-    transform: scale(101%);
-}
-
-.image-gallery::after {
-    padding: .7em;
-    content: "";
+.image-gallery .title-gallery {
     width: 100%;
-    height: 100%;
+    height: 20%;
     position: absolute;
-    top: 0;
+    bottom: -20%;
     left: 0;
-    background-color: rgba(35, 114, 150, 0.185);
+    background-color: rgb(255, 255, 255);
     z-index: 3;
     background-clip: content-box;
     transition: 0.7s;
 }
 
+.image-gallery:hover img {
+    transform: scale(110%);
+}
+
 .image-gallery img {
-    transition: 0.5s;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
 }
 </style>

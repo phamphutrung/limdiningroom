@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 animated slideInRight">
+                <div class="col-lg-6 wow slideInRight">
                     <h1 class="section-title ff-secondary text-center text-primary fw-normal">About Us</h1>
                     <div class="line"></div>
                     <h3 class="mb-4">Welcome to <i class="fa fa-utensils me-2"></i>Restoran</h3>

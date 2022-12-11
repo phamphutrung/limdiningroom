@@ -130,6 +130,7 @@ h6 {
         left: 0;
         z-index: 999;
         background: transparent !important;
+        /* background-color: white; */
     }
 
     .sticky-top.navbar-dark {
@@ -194,7 +195,7 @@ h6 {
 }
 
 .back-to-top:hover span {
-    font-size: 4.1em;
+    transform: scale(120%);
 }
 /* end back to top */
 

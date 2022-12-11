@@ -260,7 +260,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-6">
+                <div class="text-center mt-6 wow fadeInUp">
                     <router-link :to="{ name: 'menu' }">
                         <button class="btn-global border text-uppercase">SEE MORE</button>
                     </router-link>

@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid section position-relative">
-        <div class="cover-reserve d-flex align-items-center justify-content-center">
+        <div class="cover-reserve d-flex align-items-center justify-content-center wow zoomIn" data-wow-delay="0.5s">
             <div>
                 <h3 class="text-white text-center" style="letter-spacing: .1em;">
                     <p>Lorem ipsum it amet,</p>
@@ -27,10 +27,12 @@
                     </div>
                     <div class="mx-3  text-uppercase sub-text wow zoomIn" data-wow-delay="0.2s">At</div>
                     <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.2s">
-                        <a-date-picker v-model:value="time" :bordered="false" :picker="'time'" :style="{ width: '100%' }" />
+                        <a-date-picker v-model:value="time" :bordered="false" :picker="'time'"
+                            :style="{ width: '100%' }" />
                     </div>
                     <div class="item-reserve wow fadeInDown" data-wow-delay="0.4s">
-                        <router-link :to="{ name: 'bookTable', query: { amount: amountPerson, date: date, time: time }}">
+                        <router-link
+                            :to="{ name: 'bookTable', query: { amount: amountPerson, date: date, time: time } }">
                             <button class="btn-global border">RESERVE</button>
                         </router-link>
                     </div>

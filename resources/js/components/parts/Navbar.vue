@@ -43,8 +43,7 @@
     <a-drawer v-model:visible="visible" class="custom-class" closeIcon="" placement="right"
         @after-visible-change="afterVisibleChange">
         <template #extra>
-            <!-- <a-button style="margin-right: 8px" @click="toggleDrawer">Cancel</a-button> -->
-            <arrow-right-outlined class="mt-3 me-4 text-light" style="font-size: 2em; cursor: pointer;" @click="toggleDrawer" />
+            <arrow-right-outlined class="mt-3 me-4" style="font-size: 2em; cursor: pointer;" @click="toggleDrawer" />
         </template>
 
         <div class="row">
@@ -53,7 +52,7 @@
                     <img class="logo-footer mt-5" src="static/img/logo.jpg"
                         alt="                                                                                                                                                                            ">
                 </div>
-                <div class="info text-white">
+                <div class="info text-start">
                     <div class="m-0 p-0">
                         <p class="m-0 text-detail text-effect">96 Nguyen Thai Hoc, Hoi An, Vietnam</p>
                     </div>
@@ -150,9 +149,9 @@ export default {
     }
 }
 
-.ant-drawer-body, .ant-drawer-header {
+/* .ant-drawer-body, .ant-drawer-header {
     background-color: rgb(9, 10, 10);
-}
+} */
 .ant-drawer-header {
     border: none;
 }
