@@ -1,6 +1,7 @@
 <template>
-    <div class="container-fluid section position-relative">
-        <div class="cover-reserve d-flex align-items-center justify-content-center wow zoomIn" data-wow-delay="0.5s">
+    <div class="container-fluid position-relative">
+        <div class="cover-reserve d-none d-sm-none d-md-flex align-items-center justify-content-center wow zoomIn"
+            data-wow-delay="0.5s">
             <div>
                 <h3 class="text-white text-center" style="letter-spacing: .1em;">
                     <p>Lorem ipsum it amet,</p>
@@ -9,6 +10,12 @@
             </div>
         </div>
         <div class="container content-reserve">
+            <div class="row text-center d-block d-sm-none wow fadeInLeft">
+                <div class="col-md-5 mx-auto">
+                    <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Book a table</h2>
+                    <div class="line"></div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-10 detail-reserve">
                     <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.1s">
@@ -114,6 +121,9 @@ export default {
 
     .content-reserve {
         padding: 2em;
+        position: relative;
+        transform: translateX(0%);
+        left: 0;
     }
 
     .detail-reserve {
