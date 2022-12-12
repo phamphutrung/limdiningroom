@@ -60,14 +60,12 @@ export default {
         return {
             amountPerson: this.$route.query.amount,
             date: null,
-
-            // date: dayjs('2015-01-01', 'YYYY-MM-DD')
+            value: null
         }
     },
     created() {
         console.log(this.$route)
         console.log(new Date(parseInt(this.$route.query.date)));
-        // this.date = new Date(parseInt(this.$route.query.date))
     },
 }
 </script>

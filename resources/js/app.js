@@ -13,6 +13,9 @@ import router from './router';
 
 const app = createApp({})
 
+app.config.globalProperties.$auth = window.auth;
+
+
 
 import 'viewerjs/dist/viewer.css'
 import VueViewer from 'v-viewer'
@@ -25,6 +28,7 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '../css/style.css';
+import axios from 'axios';
 
 
 

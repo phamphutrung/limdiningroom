@@ -20,8 +20,17 @@
 
 <body>
     <div id="app">
-        <app></app>
+        @if (Auth::check())
+            <app :user="{{ Auth::user() }}"></app>
+        @else
+            <app :user="false" url-login="{{ route('login') }}"></app>
+        @endif
     </div>
+    <script>
+        window.auth = @json([
+            'userLogin' => auth()->check() ? auth()->user() : false
+        ])
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="{{ asset('static/lib/wow/wow.min.js') }}"></script>

@@ -3,10 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use Database\Seeders\Traits\TruncateTable;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
+    use TruncateTable;
     /**
      * Seed the application's database.
      *
@@ -14,11 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $tables = [
+            'users',
+        ];
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->truncateMultiple($tables);
+
+        \App\Models\User::factory()->create([
+            'username' => 'admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make(123456)
+        ]);
     }
 }
