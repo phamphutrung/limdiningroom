@@ -14,6 +14,7 @@ import router from './router';
 const app = createApp({})
 
 app.config.globalProperties.$auth = window.auth;
+app.config.globalProperties.$dataUrl = window.dataUrl;
 
 
 

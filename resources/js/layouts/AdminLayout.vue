@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import
 import FooterApp from '../components/parts/Footer.vue';
 import Navbar from '../components/parts/Navbar.vue';
 // import { UpOutlined } from '@ant-design/icons-vue';

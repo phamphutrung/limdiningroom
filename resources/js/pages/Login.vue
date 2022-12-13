@@ -8,9 +8,11 @@
                         <h4 class="fw-bold"><a class="text-dark">LOGO</a></h4>
                     </router-link>
                     <form @submit.prevent="handleLogin">
-                    <v-text-field clearable label="Username" variant="outlined" v-model="form.username"></v-text-field>
-                    <v-text-field clearable label="Password" variant="outlined" v-model="form.password"></v-text-field>
-                    <button type="submit" class="btn-global w-100 text-uppercase border">Login</button>
+                        <v-text-field clearable label="Username" variant="outlined"
+                            v-model="form.username"></v-text-field>
+                        <v-text-field clearable label="Password" variant="outlined"
+                            v-model="form.password"></v-text-field>
+                        <button type="submit" class="btn-global w-100 text-uppercase border">Login</button>
                     </form>
                 </div>
             </div>
@@ -32,24 +34,13 @@ export default {
     },
 
     methods: {
-        // handleLogin() {
-        //     axios.post(this.urlLogin, this.form).then((res) => {
-        //         console.log(res);
-        //         this.$auth.userLogin = res.data.payload;
-        //         this.$router.push({ name: 'admin' })
-        //     })
-        // },
         async handleLogin() {
-            await request.post('/admin/login', this.form).then((res) => {
-                console.log(res)
+            await request.post(this.$dataUrl.login, this.form).then((res) => {
                 this.$auth.userLogin = res.data.payload;
                 this.$router.push({ name: 'admin' })
-            }).catch((err) => {
-                console.log(err);
             })
         }
     },
-
 
     created() {
         console.log(this.$auth);

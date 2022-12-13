@@ -16,6 +16,7 @@
         "ant-design-vue": "^3.2.15",
         "dayjs": "^1.11.7",
         "epic-spinners": "^2.0.0",
+        "query-string": "^8.0.0",
         "v-viewer": "^3.0.11",
         "vue-gallery": "^2.0.1",
         "vue-image-lightbox": "^7.2.0",

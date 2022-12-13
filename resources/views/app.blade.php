@@ -20,15 +20,15 @@
 
 <body>
     <div id="app">
-        @if (Auth::check())
-            <app :user="{{ Auth::user() }}"></app>
-        @else
-            <app :user="false" url-login="{{ route('login') }}"></app>
-        @endif
+        <app></app>
     </div>
     <script>
         window.auth = @json([
-            'userLogin' => auth()->check() ? auth()->user() : false
+            'userLogin' => auth()->check() ? auth()->user() : false,
+        ]);
+        window.dataUrl = @json([
+            'login' => route('login'),
+            'logout' => route('logout')
         ])
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
