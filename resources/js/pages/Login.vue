@@ -10,9 +10,10 @@
                     <form @submit.prevent="handleLogin">
                         <v-text-field clearable label="Username" variant="outlined"
                             v-model="form.username"></v-text-field>
-                        <v-text-field clearable label="Password" variant="outlined"
+                        <v-text-field clearable label="Password" variant="outlined" type="password"
                             v-model="form.password"></v-text-field>
-                        <button type="submit" class="btn-global w-100 text-uppercase border">Login</button>
+                        <button :class="{ 'btn-disabled': (! form.username == null || form.password == null) }"
+                            type="submit" class="btn-global w-100 text-uppercase border">Login</button>
                     </form>
                 </div>
             </div>
@@ -27,7 +28,7 @@ export default {
     data() {
         return {
             form: {
-                username: '',
+                username: null,
                 password: null
             },
         }
@@ -52,10 +53,6 @@ export default {
 </script>
 
 <style>
-body {
-    background-color: rgba(160, 160, 160, 0.534);
-}
-
 .form-login {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }

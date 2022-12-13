@@ -141,6 +141,7 @@ h6 {
 }
 /* ** end navbar ** */
 
+/* btn */
 .btn-global {
     background-color: var(--dark);
     color: var(--light);
@@ -154,6 +155,11 @@ h6 {
     background-color: rgb(233, 233, 233);
     color: var(--dark);
 }
+
+.btn-disabled {
+    cursor: not-allowed !important;
+}
+/* end btn */
 
 .line {
     width: 6em;
