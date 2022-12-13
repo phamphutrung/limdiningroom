@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 px-6">
         <a href="" class="navbar-brand">
             <div>
-                <p class="text-white text-uppercase m-0 py-1 fw-bold animated slideInLeft" style="text-align: center; align-self: center;">logo</p>
+                <p class="text-white text-uppercase m-0 py-1 fw-bold animated slideInLeft"
+                    style="text-align: center; align-self: center;">logo</p>
                 <!-- <img src="static/img/logo.jpg" alt="Logo"> -->
             </div>
         </a>
@@ -50,6 +51,7 @@
     <a-drawer v-model:visible="visible" class="custom-class" closeIcon="" placement="right"
         @after-visible-change="afterVisibleChange">
         <template #extra>
+            <router-link v-if="this.$auth.userLogin" :to="{ name: 'admin' }"><v-btn>admin</v-btn></router-link>
             <arrow-right-outlined class="mt-3 me-4" style="font-size: 2em; cursor: pointer;" @click="toggleDrawer" />
         </template>
 

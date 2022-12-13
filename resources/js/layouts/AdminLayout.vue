@@ -1,39 +1,43 @@
 <template>
-    <div v-if="this.$auth.userLogin">
-        <h1>{{ this.$auth.userLogin.name }}</h1>
-        <h3>{{ this.$auth.userLogin.username }}</h3>
-        <h6>{{ this.$auth.userLogin.email }}</h6>
-        <button @click="handleLogout">logout</button>
-    </div>
-    <router-view></router-view>
-    <footer-app></footer-app>
+    <a-layout style="min-height: 100vh">
+        <side-bar />
+        <a-layout>
+            <a-layout-header style="background: #fff; padding: 0"></a-layout-header>
+            <a-layout-content style="margin: 0 16px">
+                <router-view></router-view>
+            </a-layout-content>
+            <a-layout-footer style="text-align: center">
+                Aff Design ©2022 Created by AffCoder
+            </a-layout-footer>
+        </a-layout>
+    </a-layout>
 </template>
 
-<script>
-// import
-import FooterApp from '../components/parts/Footer.vue';
-import Navbar from '../components/parts/Navbar.vue';
-// import { UpOutlined } from '@ant-design/icons-vue';
+
+
+<script lang="ts">
+import SideBar from '../components/parts/SideBar.vue';
+
 export default {
     components: {
-        FooterApp,
-        Navbar,
-        // UpOutlined
-    },
-    methods: {
-        handleLogout() {
-            axios.post('/admin/logout').then((res) => {
-                this.$auth.userLogin = false
-                this.$router.push({ name: 'login' })
-            });
-        }
-    },
-    created() {
-        console.log(this.$auth);
-        if (!this.$auth.userLogin) {
-            this.$router.push({name:'login'})
-        }
+        SideBar
     }
-}
+};
 </script>
+
+<style>
+#components-layout-demo-side .logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+    background: #fff;
+}
+
+[data-theme='dark'] .site-layout .site-layout-background {
+    background: #141414;
+}
+</style>
 

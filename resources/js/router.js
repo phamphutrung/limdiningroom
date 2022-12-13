@@ -2,15 +2,18 @@ import { createRouter, createWebHashHistory, createMemoryHistory, createWebHisto
 
 import WebLayout from './layouts/WebLayout.vue';
 import AdminLayout from './layouts/AdminLayout.vue';
-import Home from './pages/Home.vue';
-import Menu from './pages/Menu.vue';
-import Contact from './pages/Contact.vue';
-import Reserve from './pages/Reserve.vue';
-import About from './pages/About.vue';
-import Event from './pages/Event.vue';
-import Gallery from './pages/Gallery.vue';
-import Login from './pages/Login.vue';
-import NotFound from './pages/NotFound.vue';
+import Home from './pages/client/Home.vue';
+import Menu from './pages/client/Menu.vue';
+import Contact from './pages/client/Contact.vue';
+import Reserve from './pages/client/Reserve.vue';
+import About from './pages/client/About.vue';
+import Event from './pages/client/Event.vue';
+import Gallery from './pages/client/Gallery.vue';
+import NotFound from './pages/client/NotFound.vue';
+import Login from './pages/admin/Login.vue';
+
+import MenuManager from './pages/admin/MenuManager.vue';
+import GalleryManager from './pages/admin/GalleryManager.vue';
 
 const routes = [
     {
@@ -60,7 +63,20 @@ const routes = [
     {
         path: '/admin',
         component: AdminLayout,
-        name: 'admin'
+        name: 'admin',
+        children: [
+            {
+                path: 'menu',
+                name: 'menu-manager',
+                component: MenuManager,
+                alias: ['']
+            },
+            {
+                path: 'gallery',
+                name: 'gallery-manager',
+                component: GalleryManager
+            }
+        ]
     },
     {
         path: '/admin/login',

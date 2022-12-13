@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import request from '../services/request.js';
+import request from '../../services/request.js';
 
 export default {
     data() {
