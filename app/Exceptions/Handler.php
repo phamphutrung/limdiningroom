@@ -47,4 +47,38 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        switch ($exception) {
+            case ($exception instanceof ActionException
+                || $exception instanceof BaseException
+            ):
+
+                return $this->setResponse($exception->getStatusCode(), $exception->getErrorDescription());
+            case ($exception instanceof ValidationException):
+
+                return $this->setResponse(422, $exception->errors());
+            case ($exception instanceof MethodNotAllowedHttpException):
+
+                return $this->setResponse($exception->getStatusCode(), $exception->getMessage());
+            default:
+                break;
+        }
+
+        return parent::render($request, $exception);
+    }
+
+    private function setResponse(int $httpCode, $description = [])
+    {
+        $response = [
+            'message' => [
+                'status' => false,
+                'code' => $httpCode,
+                'description' => $description
+            ]
+        ];
+
+        return response()->json($response, $httpCode);
+    }
 }

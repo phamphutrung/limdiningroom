@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone')->nullable();
-            $table->tinyText('content');
-            $table->timestamps();
+        Schema::table('menus', function (Blueprint $table) {
+            $table->tinyIncrements('index')->after('type');
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::table('menus', function (Blueprint $table) {
+            $table->dropColumn('index');
+        });
     }
 };

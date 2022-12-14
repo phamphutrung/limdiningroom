@@ -12,7 +12,7 @@
                             v-model="form.username"></v-text-field>
                         <v-text-field clearable label="Password" variant="outlined" type="password"
                             v-model="form.password"></v-text-field>
-                        <button :class="{ 'btn-disabled': (! form.username == null || form.password == null) }"
+                        <button :class="{ 'btn-disabled': (!form.username == null || form.password == null) }"
                             type="submit" class="btn-global w-100 text-uppercase border">Login</button>
                     </form>
                 </div>
@@ -39,6 +39,10 @@ export default {
             await request.post(this.$dataUrl.login, this.form).then((res) => {
                 this.$auth.userLogin = res.data.payload;
                 this.$router.push({ name: 'admin' })
+            }).catch((err) => {
+                if (err.response.status == 400) {
+                    this.$toast.error(err.response.data.message.description)
+                }
             })
         }
     },

@@ -28,7 +28,8 @@
         ]);
         window.dataUrl = @json([
             'login' => route('login'),
-            'logout' => route('logout')
+            'logout' => route('logout'),
+            'menuList' => route('menu.list')
         ])
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

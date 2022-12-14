@@ -1,5 +1,5 @@
 <template>
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed" collapsible collapsedWidth="4.6em">
         <div class="logo text-light text-center mt-6 fw-bold" style="height: 1em;">
             <router-link :to="{ name: 'home' }">
                 <p class="m-0 text-light">LOGO</p>
@@ -10,7 +10,7 @@
             <a-menu-item key="menu-manager">
                 <appstore-add-outlined />
                 <span>
-                    Menu Manager
+                    Menu Management
                     <router-link :to="{ name: 'menu-manager' }"></router-link>
                 </span>
             </a-menu-item>
@@ -45,7 +45,7 @@
 
             <a-popconfirm title="Are you sure logout?" ok-text="Yes, Logout now" cancel-text="No" @confirm="logout">
                 <v-btn class="w-100" color="#002140">
-                    <logout-outlined style="color: #fff;" />
+                    <logout-outlined style="color: red;" />
                 </v-btn>
             </a-popconfirm>
 

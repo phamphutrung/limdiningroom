@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\BadRequestException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,7 @@ class AuthController extends BaseController
 
         return Auth::attempt($attributes)
             ? $this->jsonRender(['payload' => Auth::user()])
-            : response()->json('', 403);
+            : throw new BadRequestException('Account incorrect');
     }
 
     /**

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         $tables = [
             'users',
+            'menus'
         ];
 
         $this->truncateMultiple($tables);
@@ -29,5 +30,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => Hash::make(123456)
         ]);
+
+        \App\Models\Menu::factory(10)->create();
     }
 }

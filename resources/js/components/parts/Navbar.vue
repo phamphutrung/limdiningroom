@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 px-6">
-        <a href="" class="navbar-brand">
+        <a class="navbar-brand">
             <div>
                 <p class="text-white text-uppercase m-0 py-1 fw-bold animated slideInLeft"
                     style="text-align: center; align-self: center;">logo</p>
