@@ -49,6 +49,7 @@ export default {
 
     created() {
         console.log(this.$auth);
+        console.log(this.$dataUrl);
         if (this.$auth.userLogin) {
             this.$router.push({ name: 'admin' })
         }
