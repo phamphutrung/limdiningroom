@@ -7,15 +7,22 @@
         </div>
         <a-divider style="height: 1px; background-color: #7cb305" />
         <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-            <a-menu-item key="menu-manager">
-                <appstore-add-outlined />
+            <a-menu-item key="food-manager">
+                <v-icon class="me-4" icon="mdi-food"></v-icon>
                 <span>
-                    Menu Management
-                    <router-link :to="{ name: 'menu-manager' }"></router-link>
+                    Food Management
+                    <router-link :to="{ name: 'food-manager' }"></router-link>
+                </span>
+            </a-menu-item>
+            <a-menu-item key="-manager">
+                <i class="fa-solid fa-wine-glass ms-1 me-5" :style="{ fontSize: '1.3em' }"></i>
+                <span>
+                    Wine Management
+                    <router-link :to="{}"></router-link>
                 </span>
             </a-menu-item>
             <a-menu-item key="gallery-manager">
-                <picture-outlined />
+                <v-icon class="me-4" icon="mdi-image"></v-icon>
                 <span>
                     Gallery Management
                     <router-link :to="{ name: 'gallery-manager' }"></router-link>
@@ -24,23 +31,19 @@
             <a-sub-menu key="sub1">
                 <template #title>
                     <span>
-                        <user-outlined />
+                        <v-icon class="me-5" icon="mdi-diamond"></v-icon>
                         <span>User</span>
                     </span>
                 </template>
-                <a-menu-item key="3">Tom</a-menu-item>
+                <a-menu-item key="3">
+                    <v-icon class="me-4" icon="mdi-image"></v-icon>
+                    <span>
+                        Gallery Management
+                        <router-link :to="{ name: 'gallery-manager' }"></router-link>
+                    </span>
+                </a-menu-item>
                 <a-menu-item key="4">Bill</a-menu-item>
                 <a-menu-item key="5">Alex</a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="sub2">
-                <template #title>
-                    <span>
-                        <team-outlined />
-                        <span>Team</span>
-                    </span>
-                </template>
-                <a-menu-item key="6">Team 1</a-menu-item>
-                <a-menu-item key="8">Team 2</a-menu-item>
             </a-sub-menu>
 
             <a-popconfirm title="Are you sure logout?" ok-text="Yes, Logout now" cancel-text="No" @confirm="logout">
@@ -74,7 +77,7 @@ export default {
         return {
             collapsed: false,
             selectedKeys: [
-                this.$route.name
+                this.$route.name,
             ],
         };
     },

@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MenuController;
-use App\Http\Resources\MenuResource;
-use App\Http\Resources\MenusResource;
-use App\Models\Menu;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +22,10 @@ Route::view('/', 'app');
 
 Route::post('/admin/login', [AuthController::class, 'login'])->name('login');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/menus', [MenuController::class, 'list'])->name('menu.list');
+Route::get('/menu', [FoodController::class, 'list'])->name('food.list');
+
+//upload image
+Route::post('/upload', [MediaController::class, 'store'])->name('upload');
 
 Route::get('/{any}', function () {
     return view('app');

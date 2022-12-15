@@ -2,7 +2,8 @@
     <a-layout style="min-height: 100vh">
         <side-bar />
         <a-layout>
-            <a-layout-header style="background: #fff; padding: 0"></a-layout-header>
+            <a-layout-header style="background: #fff; padding: 0">
+            </a-layout-header>
             <a-layout-content style="margin: 0 16px">
                 <router-view></router-view>
             </a-layout-content>
@@ -21,7 +22,12 @@ import SideBar from '../components/parts/SideBar.vue';
 export default {
     components: {
         SideBar
-    }
+    },
+    data() {
+        return {
+            collapsed: false,
+        }
+    },
 };
 </script>
 

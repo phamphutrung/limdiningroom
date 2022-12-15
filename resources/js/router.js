@@ -12,7 +12,8 @@ import Gallery from './pages/client/Gallery.vue';
 import NotFound from './pages/client/NotFound.vue';
 import Login from './pages/admin/Login.vue';
 
-import MenuManager from './pages/admin/MenuManager.vue';
+import FoodManager from './pages/admin/FoodManager.vue';
+import FoodCreate from './pages/admin/FoodCreate.vue'
 import GalleryManager from './pages/admin/GalleryManager.vue';
 
 const routes = [
@@ -26,37 +27,43 @@ const routes = [
                 path: '/',
                 component: Home,
                 name: 'home',
-                alias: ['/home', '']
+                alias: ['/home', ''],
             },
             {
                 path: '/menu',
                 name: 'menu',
-                component: Menu
+                component: Menu,
+                meta: { title: 'Menu | Lim Dining Room' },
             },
             {
                 path: '/book-a-table',
                 name: 'bookTable',
-                component: Reserve
+                component: Reserve,
+                meta: { title: 'Reserve | Lim Dining Room' },
             },
             {
                 path: '/gallery',
                 name: 'gallery',
-                component: Gallery
+                component: Gallery,
+                meta: { title: 'Gallery | Lim Dining Room' },
             },
             {
                 path: '/event',
                 name: 'event',
-                component: Event
+                component: Event,
+                meta: { title: 'Event | Lim Dining Room' },
             },
             {
                 path: '/contact',
                 name: 'contact',
-                component: Contact
+                component: Contact,
+                meta: { title: 'Contact | Lim Dining Room' },
             },
             {
                 path: '/about',
                 name: 'about',
-                component: About
+                component: About,
+                meta: { title: 'About | Lim Dining Room' },
             }
         ],
     },
@@ -64,17 +71,25 @@ const routes = [
         path: '/admin',
         component: AdminLayout,
         name: 'admin',
+        redirect: '/admin/food',
         children: [
             {
-                path: 'menu',
-                name: 'menu-manager',
-                component: MenuManager,
-                alias: ['']
+                path: 'food',
+                name: 'food-manager',
+                component: FoodManager,
+                meta: { title: 'Lim | Food Management' }
+            },
+            {
+                path: 'food/create',
+                name: 'food-create',
+                component: FoodCreate,
+                meta: { title: 'Lim | Create Food' }
             },
             {
                 path: 'gallery',
                 name: 'gallery-manager',
-                component: GalleryManager
+                component: GalleryManager,
+                meta: { title: 'Lim | Gallery Management' },
             }
         ]
     },
@@ -97,5 +112,10 @@ const router = createRouter({
     },
 
 })
+
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title || 'Lim Dining Room';
+    next();
+});
 
 export default router;

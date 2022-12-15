@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
-
+        Schema::create('food', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('price')->nullable();
             $table->string('sub_desc')->nullable();
-            $table->tinyText('desc')->nullable();
+            $table->tinyText('short_desc')->nullable();
             $table->json('content')->nullable();
             $table->boolean('status')->default(true);
-            $table->string('type')->comment('ex: food, wine');
+            $table->boolean('isCombo')->default(false);
+            $table->json('more_info')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('food');
     }
 };

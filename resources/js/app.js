@@ -6,6 +6,8 @@ import './bootstrap';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
+/** upload image */
+import { UploadMedia, UpdateMedia } from 'vue-media-upload';
 
 /** vuetify */
 import 'vuetify/styles'
@@ -47,5 +49,7 @@ app.use(Toaster, {
     max: 3
 })
 app.component('app', App)
+app.component('upload-media' , UploadMedia);
+app.component('update-media' , UpdateMedia);
 app.mount('#app')
 

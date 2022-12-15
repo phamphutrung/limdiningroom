@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class MenusResource extends ResourceCollection
+class FoodsResource extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -40,7 +40,7 @@ class MenusResource extends ResourceCollection
     public function toArray($request): array
     {
         return [
-            'data' => MenuResource::collection($this->collection->toArray()),
+            'data' => FoodResource::collection($this->collection->toArray()),
             'meta' => [
                 'paginate' => $this->pagination,
             ],

@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\Menu;
+use App\Models\Food;
 
-class MenuRepository extends BaseRepository
+class FoodRepository extends BaseRepository
 {
     public function __construct()
     {
-        parent::__construct(Menu::class);
+        parent::__construct(Food::class);
     }
 
     /**
      *
      */
-    public function createMenu()
+    public function createFood()
     {
         parent::create([]);
     }
