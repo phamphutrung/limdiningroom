@@ -31,6 +31,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make(123456)
         ]);
 
-        \App\Models\Food::factory(10)->create();
+        \App\Models\Food::factory(3)->create();
     }
 }

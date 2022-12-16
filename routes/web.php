@@ -18,11 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'app');
 
+Route::middleware([])->group(function () {
+    Route::post('/admin/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 
-
-Route::post('/admin/login', [AuthController::class, 'login'])->name('login');
-Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/menu', [FoodController::class, 'list'])->name('food.list');
+    Route::prefix('foods')->group(function () {
+        Route::get('', [FoodController::class, 'list'])->name('food.list');
+        Route::post('', [FoodController::class, 'create'])->name('food.create');
+    });
+});
 
 //upload image
 Route::post('/upload', [MediaController::class, 'store'])->name('upload');

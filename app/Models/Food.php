@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Attributes\FoodAttribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Food extends Model
 {
-    use HasFactory;
+    use HasFactory,
+        FoodAttribute;
 
     protected $guarded = [];
 

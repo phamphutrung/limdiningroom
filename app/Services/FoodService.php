@@ -22,9 +22,15 @@ class FoodService
     /**
      *
      */
-    public function create(Request $request)
+    public function create($request)
     {
-        # code...
+        $attributes = $request->all();
+        if ($request->hasFile('image')) {
+            // $name
+        }
+        dd('not ok');
+
+        return $this->foodRepository->create($attributes);
     }
 
     /**
@@ -35,4 +41,3 @@ class FoodService
         return $this->foodRepository->list();
     }
 }
-
