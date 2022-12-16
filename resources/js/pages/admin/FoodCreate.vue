@@ -22,7 +22,7 @@
                         </div>
                         <a-divider style="height: 1px; background-color: #7cb305" />
 
-                        <a-form :layout="'horizontal'" :model="form" :labelCol="{ span: 4 }" :wrapperCol="{ span: 14 }">
+                        <a-form :layout="'horizontal'" :model="form" :labelCol="{ span: 4 }" :wrapperCol="{ span: 16 }">
                             <a-form-item label="Name">
                                 <a-input v-model:value="form.name" placeholder="Enter food name" />
                             </a-form-item>
@@ -46,15 +46,11 @@
                                     }}</v-chip>
                             </a-form-item>
                             <a-form-item label="Image">
-                                <form enctype="">
-                                    <input type="file" @change="onChange" ref="inputImage" hidden />
-                                </form>
-                                <div v-if="previewImageSrc" class="default-image w-25">
-                                    <img class="w-100" :src="previewImageSrc">
-                                    <button class="btn btn-choose-image" @click="selectImage">Choose image</button>
-                                </div>
-                                <div v-else class="default-image w-25">
-                                    <img class="w-100" src="/static/img/defaultImage.jpg">
+                                <input type="file" @change="onChange" ref="inputImage" hidden />
+                                <div class="default-image w-25">
+                                    <img class="w-100 rounded"
+                                        :src="previewImageSrc == '' ? '/static/img/defaultImage.jpg' : previewImageSrc"
+                                        :class="{ 'image-picked': previewImageSrc }">
                                     <button class="btn btn-choose-image" @click="selectImage">Choose image</button>
                                 </div>
                             </a-form-item>
@@ -114,6 +110,7 @@ export default {
                 status: true,
                 image: null
             },
+            formReset: {},
             contents: [
                 {
                     title: null,
@@ -136,8 +133,26 @@ export default {
             console.log(this.form);
             await request.post('/foods', this.form, {
                 headers: {
-                    'content-type': 'multipart/form-data'
+                    'content-type': 'multipart/form-data',
                 }
+            }).then((res) => {
+                this.previewImageSrc = '',
+                    this.contents = [
+                        {
+                            title: null,
+                            value: null
+                        }
+                    ],
+                    this.form = {
+                        name: '',
+                        price: '',
+                        currency: 'VND',
+                        sub_desc: '',
+                        content: {},
+                        status: true,
+                        image: null
+                    }
+                this.$toast.success('Create successfully');
             })
         },
         incrementContent() {
@@ -158,6 +173,10 @@ export default {
             this.$refs.inputImage.click()
         }
     },
+    created() {
+        this.formReset = this.form;
+
+    },
 
 
 };
@@ -175,7 +194,8 @@ export default {
     transform: translate(-50%, -50%);
     display: none;
     transition: all 0.3s;
-    border-color: rgb(167, 164, 164);
+    border-color: rgb(168, 163, 163);
+    background-color: rgb(240, 241, 241);
 }
 
 .default-image img {
@@ -184,8 +204,14 @@ export default {
     cursor: pointer;
 }
 
+.default-image img.image-picked {
+    opacity: 1;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
 .default-image:hover img {
-    opacity: .25;
+    opacity: .5;
 }
 
 .default-image:hover .btn-choose-image {

@@ -17,4 +17,8 @@ class Food extends Model
         'content' => 'array',
         'more_info' => 'array'
     ];
+
+    protected $appends = [
+        'image'
+    ];
 }

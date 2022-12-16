@@ -23,6 +23,7 @@ class FoodResource extends JsonResource
             'status' => data_get($this, 'status'),
             'isCombo' => data_get($this, 'isCombo'),
             'more_info' => data_get($this, 'more_info'),
+            'image' => data_get($this, 'image')
         ];
 
         return $result;

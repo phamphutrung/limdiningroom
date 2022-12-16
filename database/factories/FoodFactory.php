@@ -24,13 +24,12 @@ class FoodFactory extends Factory
             'sub_desc' => 'Lorem ipsum dolor sit amet consectetur.',
             'short_desc' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem sequi corrupti sapiente consectetur aliquam blanditiis voluptas, ipsam similique beatae repellat!',
             'content' => [
-                'main_content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum.',
-                'sub_content1' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe repudiandae modi sed earum sunt obcaecati.',
-                'sub_content2' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe repudiandae modi sed earum sunt obcaecati.',
-                'sub_content3' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe repudiandae modi sed earum sunt obcaecati.',
+                'Introduce' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, nostrum.',
+                'Nutritional' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe repudiandae modi sed earum sunt obcaecati.',
+                'Ingredient' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe repudiandae modi sed earum sunt obcaecati.',
             ],
-            'status' => $boolean[rand(0,1)],
-            'isCombo' => $boolean[rand(0,1)],
+            'status' => $boolean[rand(0, 1)],
+            'isCombo' => $boolean[rand(0, 1)],
             'more_info' => [
                 'introduce' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae distinctio optio asperiores a alias vero maiores cum sunt. Provident temporibus voluptates accusantium animi perspiciatis architecto vero eos vitae obcaecati exercitationem.,',
                 'element' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, non.',

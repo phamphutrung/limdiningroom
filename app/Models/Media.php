@@ -10,4 +10,9 @@ class Media extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public static $media_type = [
+        'FOOD' => 'food',
+        'WINE' => 'wine'
+    ];
 }

@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
     {
         $tables = [
             'users',
-            'food'
+            'food',
+            'media'
         ];
 
         $this->truncateMultiple($tables);
@@ -31,6 +32,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make(123456)
         ]);
 
-        \App\Models\Food::factory(3)->create();
+        \App\Models\Food::factory(1)->create();
     }
 }

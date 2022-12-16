@@ -14,14 +14,6 @@ class FoodRepository extends BaseRepository
     /**
      *
      */
-    public function createFood()
-    {
-        parent::create([]);
-    }
-
-    /**
-     *
-     */
     public function list($params = null)
     {
         return $this->model::paginate(100);

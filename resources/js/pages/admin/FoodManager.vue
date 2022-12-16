@@ -33,7 +33,8 @@
                                     </a-popconfirm>
                                 </template>
                                 <template v-if="column.key === 'thumbnail'">
-                                    <a-image :width="'7em'" :src="record.thumbnail" />
+                                    <a-image :width="'7em'"
+                                        :src="record.image == null ? '/static/img/defaultImage.jpg' : '/storage/' + record.image" />
                                 </template>
                                 <template v-if="column.key === 'status'">
                                     <v-chip v-if="record.status == 1" prepend-icon="mdi-check-circle-outline"
@@ -49,10 +50,20 @@
                                     {{ record.isCombo ? 'Combo' : 'single' }}
                                 </template>
                             </template>
-                            <template #expandedRowRender="{ record }">
-                                <p style="margin: 0">
-                                    {{ record.content.main_content }}
-                                </p>
+                            <template #expandedRowRender="{ record }" class="bg-primary">
+                                <v-tabs v-model="tab[record.key]" fixed-tabs>
+                                    <v-tab v-for="(val, index) in Object.entries(record.content)" :key="index"
+                                        :value="val[0]">
+                                        {{ val[0] }}
+                                    </v-tab>
+                                </v-tabs>
+                                <v-window class="mt-5" v-model="tab[record.key]">
+                                    <v-window-item class="container"
+                                        v-for="(val, index) in Object.entries(record.content)" :key="index"
+                                        :value="val[0]">
+                                        {{ val[1] }}
+                                    </v-window-item>
+                                </v-window>
                             </template>
                         </a-table>
                     </div>
@@ -75,14 +86,15 @@ export default {
         return {
             menus: [],
             columns: [
-                { title: 'Image', dataIndex: 'thumbnail', key: 'thumbnail' },
+                { title: 'Image', dataIndex: 'image', key: 'thumbnail' },
                 { title: 'Name', dataIndex: 'name', key: 'name' },
                 { title: 'Price', dataIndex: 'price', key: 'price' },
                 { title: 'Sub Description', dataIndex: 'sub_desc', key: 'sub_desc' },
                 { title: 'Status', dataIndex: 'status', key: 'status' },
                 { title: 'Type', dataIndex: 'type', key: 'type' },
                 { title: 'Action', key: 'action' },
-            ]
+            ],
+            tab: []
         }
     },
 
@@ -92,7 +104,6 @@ export default {
                 let menus = res.data.payload.data;
                 menus.forEach((val, index) => {
                     val['key'] = index;
-                    val['thumbnail'] = "https://i.pinimg.com/564x/da/71/87/da718714a564e0b7d3110fada91d2c44.jpg";
                 });
                 this.menus = menus;
             })
@@ -106,7 +117,9 @@ export default {
 </script>
 
 <style>
-
+.v-btn__content {
+    text-transform: capitalize;
+}
 </style>
 
 
