@@ -23,7 +23,7 @@
                             <template #bodyCell="{ column, record }">
                                 <template v-if="column.key === 'action'">
                                     <a-button class="me-1">
-                                        <v-icon icon="mdi-tooltip-edit" />
+                                        <v-icon icon="mdi-border-color" />
                                     </a-button>
                                     <a-popconfirm title="Are you sure delete?" ok-text="Yes, Delete now"
                                         cancel-text="No" @confirm="{}">

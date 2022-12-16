@@ -46,12 +46,32 @@
                                     }}</v-chip>
                             </a-form-item>
                             <a-form-item label="Image">
-                                <input type="file" @change="onChange" ref="inputImage" hidden />
-                                <div class="default-image w-25">
+                                <input type="file" @change="onChangeImage" ref="inputImage" hidden />
+                                <div class="default-image">
                                     <img class="w-100 rounded"
                                         :src="previewImageSrc == '' ? '/static/img/defaultImage.jpg' : previewImageSrc"
                                         :class="{ 'image-picked': previewImageSrc }">
-                                    <button class="btn btn-choose-image" @click="selectImage">Choose image</button>
+                                    <button class="btn btn-choose-image" @click="selectImage(1)">Choose image</button>
+                                </div>
+                            </a-form-item>
+                            <a-form-item label="Sub image">
+                                <input type="file" @change="onChangeMultipleImage" ref="inputMultipleImage" multiple
+                                    hidden />
+                                <div class="default-image" v-for="(item, index) in previewMultipleImageSrc"
+                                    :key="index">
+                                    <v-icon class="btn-remove-preview" @click="removeItemPreviewImage(index)"
+                                        style="cursor: pointer; position: absolute; right: 5px; top: 5px; z-index: 5;"
+                                        icon="mdi-minus-circle-outline"></v-icon>
+                                    <a-image :src="item" class="rounded" height="100%" width="100%"
+                                        :class="'image-picked'" />
+                                </div>
+                                <div class="default-image">
+                                    <img class="w-100 rounded" src="/static/img/defaultImage.jpg">
+                                    <v-icon v-if="this.previewMultipleImageSrc.length" class="btn-choose-image"
+                                        style="font-size: 3em;" @click="selectImage(2)"
+                                        icon="mdi-plus-circle-outline"></v-icon>
+                                    <button v-else class="btn btn-choose-image" @click="selectImage(2)">Choose
+                                        image</button>
                                 </div>
                             </a-form-item>
 
@@ -108,7 +128,8 @@ export default {
                 sub_desc: '',
                 content: {},
                 status: true,
-                image: null
+                image: null,
+                multipleImage: []
             },
             formReset: {},
             contents: [
@@ -118,6 +139,7 @@ export default {
                 }
             ],
             previewImageSrc: '',
+            previewMultipleImageSrc: [],
         }
     },
     methods: {
@@ -136,7 +158,8 @@ export default {
                     'content-type': 'multipart/form-data',
                 }
             }).then((res) => {
-                this.previewImageSrc = '',
+                this.previewMultipleImageSrc = [],
+                    this.previewImageSrc = '',
                     this.contents = [
                         {
                             title: null,
@@ -150,7 +173,8 @@ export default {
                         sub_desc: '',
                         content: {},
                         status: true,
-                        image: null
+                        image: null,
+                        multipleImage: []
                     }
                 this.$toast.success('Create successfully');
             })
@@ -164,13 +188,29 @@ export default {
         removeItemContent(event, index) {
             this.contents.splice(index, 1);
         },
-        onChange(e) {
+        onChangeImage(e) {
             this.form.image = e.target.files[0];
             this.previewImageSrc = URL.createObjectURL(this.form.image);
-            console.log(this.previewImageSrc);
         },
-        selectImage() {
-            this.$refs.inputImage.click()
+        onChangeMultipleImage(e) {
+            console.log(e.target.files);
+            let files = e.target.files;
+            for (let index = 0; index < files.length; index++) {
+                this.form.multipleImage.push(files[index])
+                this.previewMultipleImageSrc.push(URL.createObjectURL(files[index]))
+            }
+            console.log(this.form);
+            console.log(this.previewMultipleImageSrc);
+        },
+        removeItemPreviewImage(index) {
+            this.previewMultipleImageSrc.splice(index, 1);
+            this.form.multipleImage.splice(index, 1);
+            console.log(this.previewMultipleImageSrc);
+            console.log(this.form.multipleImage);
+
+        },
+        selectImage(index) {
+            index == 1 ? this.$refs.inputImage.click() : this.$refs.inputMultipleImage.click();
         }
     },
     created() {
@@ -185,6 +225,10 @@ export default {
 <style scoped>
 .default-image {
     position: relative;
+    width: 12em;
+    height: 12em;
+    display: inline-block;
+    margin: .3em;
 }
 
 .default-image .btn-choose-image {
@@ -193,15 +237,16 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
-    transition: all 0.3s;
     border-color: rgb(168, 163, 163);
-    background-color: rgb(240, 241, 241);
+    padding: 2px 4px;
+    font-size: 12px;
 }
 
 .default-image img {
-    opacity: .8;
+    opacity: .3;
     transition: all 0.3s;
     cursor: pointer;
+    height: 100%;
 }
 
 .default-image img.image-picked {
@@ -211,11 +256,17 @@ export default {
 }
 
 .default-image:hover img {
-    opacity: .5;
+    opacity: .1;
 }
 
 .default-image:hover .btn-choose-image {
     display: inline;
+}
+
+.btn-remove-preview {
+    background-color: rgba(255, 255, 255, 0.705);
+    border-radius: 100%;
+    opacity: .7;
 }
 </style>
 

@@ -33,7 +33,8 @@ class FoodService
      */
     public function create($request)
     {
-        $attributes = $request->except('image');
+        // dd($request->multipleImage);
+        $attributes = $request->except(['image', 'multipleImage']);
         $attributes['status'] = $attributes['status'] == 'true' ? true : false;
 
         $food = $this->foodRepository->create($attributes);
@@ -51,7 +52,25 @@ class FoodService
                 'media_id' => $food->id
             ];
 
-            return $this->mediaRepository->create($attributesMedia);
+            $this->mediaRepository->create($attributesMedia);
+        }
+
+        if ($request->multipleImage) {
+            foreach ($request->multipleImage as $image) {
+                $fileName = time() . '_' . $image->getClientOriginalName();
+                $FilePath = $image->storeAs('foods', $fileName, 'public');
+
+                $attributesMedia = [
+                    'path' => $FilePath,
+                    'is_sub' => true,
+                    'size' => $image->getSize(),
+                    'mime_type' => $image->getMimeType(),
+                    'media_type' => Media::$media_type['FOOD'],
+                    'media_id' => $food->id
+                ];
+
+                $this->mediaRepository->create($attributesMedia);
+            }
         }
 
         return $food;
