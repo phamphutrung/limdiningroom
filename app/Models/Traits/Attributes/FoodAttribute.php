@@ -22,8 +22,31 @@ trait FoodAttribute
     /**
      *
      */
+    public function getSubImageAttribute()
+    {
+        $media = Media::where('media_id', $this->id)->where('media_type', Media::$media_type['FOOD'])->where('is_sub', true)->get();
+
+        if ($media->count()) {
+            $result = [];
+            foreach ($media as $value) {
+                $result[] = [
+                    'path' => $value->path,
+                    'id' => $value->id
+                ];
+            }
+            return $result;
+        }
+
+        return null;
+    }
+
+    /**
+     *
+     */
     public function setPriceAttribute($value)
     {
-        $this->attributes['price'] = number_format($value);
+        $float = floatval($value);
+
+        return $this->attributes['price'] = number_format($float);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\BadRequestException;
+use App\Http\Resources\FoodResource;
 use App\Http\Resources\FoodsResource;
 use App\Models\Food;
 use App\Services\FoodService;
@@ -28,6 +29,16 @@ class FoodController extends BaseController
         $foods = new FoodsResource($this->foodService->list());
 
         return $this->jsonRender(['payload' => $foods]);
+    }
+
+    /**
+     *
+     */
+    public function show(Request $request)
+    {
+        $food = new FoodResource($this->foodService->show($request));
+
+        return $this->jsonRender(['payload' => $food]);
     }
 
     /**

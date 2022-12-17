@@ -21,5 +21,11 @@ class BaseRepository
         return $this->model::query()->create($attributes);
     }
 
-
+    /**
+     * @param int $id
+     */
+    public function show(int $id)
+    {
+        return $this->model::query()->findOrFail($id);
+    }
 }

@@ -22,9 +22,11 @@
                         <a-table :columns="columns" :data-source="menus" :pagination="false">
                             <template #bodyCell="{ column, record }">
                                 <template v-if="column.key === 'action'">
-                                    <a-button class="me-1">
-                                        <v-icon icon="mdi-border-color" />
-                                    </a-button>
+                                    <router-link :to="{ name: 'food-edit', params: { id: record.id } }">
+                                        <a-button class="me-1">
+                                            <v-icon icon="mdi-border-color" />
+                                        </a-button>
+                                    </router-link>
                                     <a-popconfirm title="Are you sure delete?" ok-text="Yes, Delete now"
                                         cancel-text="No" @confirm="{}">
                                         <a-button>
@@ -51,13 +53,13 @@
                                 </template>
                             </template>
                             <template #expandedRowRender="{ record }" class="bg-primary">
-                                <v-tabs v-model="tab[record.key]" fixed-tabs>
+                                <v-tabs v-if="!(record.content == null)" v-model="tab[record.key]" fixed-tabs>
                                     <v-tab v-for="(val, index) in Object.entries(record.content)" :key="index"
                                         :value="val[0]">
                                         {{ val[0] }}
                                     </v-tab>
                                 </v-tabs>
-                                <v-window class="mt-5" v-model="tab[record.key]">
+                                <v-window v-if="!(record.content == null)" class="mt-5" v-model="tab[record.key]">
                                     <v-window-item class="container"
                                         v-for="(val, index) in Object.entries(record.content)" :key="index"
                                         :value="val[0]">
@@ -107,11 +109,14 @@ export default {
                 });
                 this.menus = menus;
             })
+            console.log(this.menus);
+
         }
     },
 
     created() {
         this.getListMenu()
+
     }
 }
 </script>

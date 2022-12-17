@@ -3,7 +3,7 @@
         <a-breadcrumb style="margin: 16px 0">
             <a-breadcrumb-item>Admin</a-breadcrumb-item>
             <a-breadcrumb-item>Food Management</a-breadcrumb-item>
-            <a-breadcrumb-item>Create</a-breadcrumb-item>
+            <a-breadcrumb-item>{{ foodId ? 'Edit' : 'Create ' }}</a-breadcrumb-item>
         </a-breadcrumb>
 
         <div class="container-fluid">
@@ -11,7 +11,7 @@
                 <div class="card rounded-0">
                     <div class="card-body">
                         <div class="d-flex justify-space-between">
-                            <h5 class="d-inline-block my-1">Create Food</h5>
+                            <h5 class="d-inline-block my-1">{{ foodId ? 'edit food' : 'create food' }}</h5>
                             <router-link :to="{ name: 'food-manager' }">
                                 <button class="btn btn-sm btn-outline-success">
                                     <v-icon :style="{ fontSize: '1.4em', paddingBottom: '4px' }"
@@ -103,7 +103,8 @@
                             </a-form-item>
 
                             <a-form-item :wrapperCol="{ span: 14, offset: 4 }">
-                                <a-button @click="handleCreate" type="primary">Submit</a-button>
+                                <a-button @click="handleCreate" type="primary">{{ foodId ? 'Update' : 'Create'
+                                }}</a-button>
                             </a-form-item>
                         </a-form>
                     </div>
@@ -129,9 +130,10 @@ export default {
                 content: {},
                 status: true,
                 image: null,
-                multipleImage: []
+                multipleImage: [],
+                multipleImageRemove: [],
             },
-            formReset: {},
+            idMultipleImageEdit: [],
             contents: [
                 {
                     title: null,
@@ -140,9 +142,51 @@ export default {
             ],
             previewImageSrc: '',
             previewMultipleImageSrc: [],
+            foodId: false
+        }
+    },
+    mounted() {
+        if (this.foodId) {
+            this.getFoodEdit(this.foodId)
         }
     },
     methods: {
+        async getFoodEdit(id) {
+            await request.get(this.$dataUrl.foodShow, {
+                params: { id: id }
+            }).then((res) => {
+                let result = { ...res.data.payload }
+                this.form.name = result.name
+                this.form.price = result.price
+                this.form.currency = result.currency
+                this.form.status = result.status ? true : false
+                this.form.sub_desc = result.sub_desc ?? ''
+                if (result.image) {
+                    this.previewImageSrc = '/storage/' + result.image
+                }
+                if (result.sub_image) {
+                    result.sub_image.forEach(val => {
+                        this.previewMultipleImageSrc.push('/storage/' + val.path)
+                        this.idMultipleImageEdit.push(val.id)
+                    });
+                    console.log('co sub image');
+                }
+                if (result.content) {
+                    this.contents = []
+                    for (const value in result.content) {
+                        console.log(value, result.content[value]);
+                        this.contents.push({ title: value, value: result.content[value] })
+                    }
+                }
+                console.log(result);
+                console.log(this.previewMultipleImageSrc);
+                console.log(this.idMultipleImageEdit);
+            }).catch((err) => {
+                if (err.response.status == 404) {
+                    this.$router.push({ name: 'food-create' })
+                }
+            })
+        },
         async handleCreate() {
             this.form.content = {};
             if (this.contents[0].title) {
@@ -153,11 +197,11 @@ export default {
                 });
             }
             console.log(this.form);
-            await request.post('/foods', this.form, {
+            await request.post(this.$dataUrl.foodCreate, this.form, {
                 headers: {
                     'content-type': 'multipart/form-data',
                 }
-            }).then((res) => {
+            }).then(() => {
                 this.previewMultipleImageSrc = [],
                     this.previewImageSrc = '',
                     this.contents = [
@@ -200,22 +244,32 @@ export default {
                 this.previewMultipleImageSrc.push(URL.createObjectURL(files[index]))
             }
             console.log(this.form);
-            console.log(this.previewMultipleImageSrc);
+            // console.log(this.previewMultipleImageSrc);
         },
         removeItemPreviewImage(index) {
-            this.previewMultipleImageSrc.splice(index, 1);
-            this.form.multipleImage.splice(index, 1);
-            console.log(this.previewMultipleImageSrc);
-            console.log(this.form.multipleImage);
-
+            if (!this.foodId) {
+                this.previewMultipleImageSrc.splice(index, 1);
+                this.form.multipleImage.splice(index, 1);
+            } else {
+                let totalOldMultipleImage = this.idMultipleImageEdit.length - this.form.multipleImageRemove.length
+                if (index < totalOldMultipleImage) {
+                    this.form.multipleImageRemove.push(this.idMultipleImageEdit[index])
+                    this.previewMultipleImageSrc.splice(index, 1);
+                } else {
+                    this.previewMultipleImageSrc.splice(index, 1);
+                    this.form.multipleImage.splice(index - totalOldMultipleImage, 1);
+                }
+            }
+            console.log(this.form);
         },
         selectImage(index) {
             index == 1 ? this.$refs.inputImage.click() : this.$refs.inputMultipleImage.click();
         }
     },
     created() {
-        this.formReset = this.form;
-
+        if (this.$route.params.id) {
+            this.foodId = this.$route.params.id;
+        }
     },
 
 

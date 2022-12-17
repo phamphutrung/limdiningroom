@@ -86,6 +86,12 @@ const routes = [
                 meta: { title: 'Lim | Create Food' }
             },
             {
+                path: 'food/edit/:id',
+                name: 'food-edit',
+                component: FoodCreate,
+                meta: { title: 'Lim | Edit Food' }
+            },
+            {
                 path: 'gallery',
                 name: 'gallery-manager',
                 component: GalleryManager,
@@ -99,7 +105,7 @@ const routes = [
         name: 'login'
     },
     {
-        path: '/:pathMatch(.*)*', component: NotFound
+        path: '/:pathMatch(.*)*', component: NotFound, name: 'not-found'
     },
 
 ];

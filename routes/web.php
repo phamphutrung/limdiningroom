@@ -25,6 +25,7 @@ Route::middleware([])->group(function () {
     Route::prefix('foods')->group(function () {
         Route::get('', [FoodController::class, 'list'])->name('food.list');
         Route::post('', [FoodController::class, 'create'])->name('food.create');
+        Route::get('/show', [FoodController::class, 'show'])->name('food.show');
     });
 });
 

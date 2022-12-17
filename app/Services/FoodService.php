@@ -31,9 +31,26 @@ class FoodService
     /**
      *
      */
+    public function list()
+    {
+        return $this->foodRepository->list();
+    }
+
+    /**
+     *
+     */
+    public function show($request)
+    {
+        $id = $request->id;
+
+        return $this->foodRepository->show($id);
+    }
+
+    /**
+     *
+     */
     public function create($request)
     {
-        // dd($request->multipleImage);
         $attributes = $request->except(['image', 'multipleImage']);
         $attributes['status'] = $attributes['status'] == 'true' ? true : false;
 
@@ -74,13 +91,5 @@ class FoodService
         }
 
         return $food;
-    }
-
-    /**
-     *
-     */
-    public function list()
-    {
-        return $this->foodRepository->list();
     }
 }

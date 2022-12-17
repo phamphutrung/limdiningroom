@@ -19,6 +19,6 @@ class Food extends Model
     ];
 
     protected $appends = [
-        'image'
+        'image',
     ];
 }
