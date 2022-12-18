@@ -30,7 +30,8 @@
                 'logout' => route('logout'),
                 'foodList' => route('food.list'),
                 'foodCreate' => route('food.create'),
-                'foodShow' => route('food.show')
+                'foodShow' => route('food.show'),
+                'foodUpdate' => route('food.update')
             ];
             $auth = [
                 'userLogin' => auth()->check() ? auth()->user() : false,

@@ -28,4 +28,12 @@ class BaseRepository
     {
         return $this->model::query()->findOrFail($id);
     }
+
+    // /**
+    //  * @params array $attributes
+    //  */
+    // public function update(array $attributes)
+    // {
+    //     return $this->model::query()->
+    // }
 }

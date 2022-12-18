@@ -103,8 +103,8 @@
                             </a-form-item>
 
                             <a-form-item :wrapperCol="{ span: 14, offset: 4 }">
-                                <a-button @click="handleCreate" type="primary">{{ foodId ? 'Update' : 'Create'
-                                }}</a-button>
+                                <a-button v-if="!foodId" @click="handleCreate" type="primary">Create</a-button>
+                                <a-button v-else @click="handleUpdate" type="primary">Update</a-button>
                             </a-form-item>
                         </a-form>
                     </div>
@@ -148,6 +148,7 @@ export default {
     mounted() {
         if (this.foodId) {
             this.getFoodEdit(this.foodId)
+            this.form.foodId = this.foodId
         }
     },
     methods: {
@@ -169,25 +170,23 @@ export default {
                         this.previewMultipleImageSrc.push('/storage/' + val.path)
                         this.idMultipleImageEdit.push(val.id)
                     });
-                    console.log('co sub image');
                 }
                 if (result.content) {
                     this.contents = []
                     for (const value in result.content) {
-                        console.log(value, result.content[value]);
                         this.contents.push({ title: value, value: result.content[value] })
                     }
                 }
                 console.log(result);
-                console.log(this.previewMultipleImageSrc);
-                console.log(this.idMultipleImageEdit);
+                // console.log(this.idMultipleImageEdit);
+
             }).catch((err) => {
                 if (err.response.status == 404) {
                     this.$router.push({ name: 'food-create' })
                 }
             })
         },
-        async handleCreate() {
+        handleFormContent() {
             this.form.content = {};
             if (this.contents[0].title) {
                 this.contents.forEach((item) => {
@@ -196,7 +195,20 @@ export default {
                     }
                 });
             }
-            console.log(this.form);
+        },
+        async handleUpdate() {
+            this.handleFormContent()
+            await request.post(this.$dataUrl.foodUpdate, this.form, {
+                headers: {
+                    'content-type': 'multipart/form-data',
+                }
+            }).then((res) => {
+                console.log(res);
+                this.$toast.success('Update successfully')
+            })
+        },
+        async handleCreate() {
+            this.handleFormContent()
             await request.post(this.$dataUrl.foodCreate, this.form, {
                 headers: {
                     'content-type': 'multipart/form-data',
@@ -237,30 +249,30 @@ export default {
             this.previewImageSrc = URL.createObjectURL(this.form.image);
         },
         onChangeMultipleImage(e) {
-            console.log(e.target.files);
             let files = e.target.files;
             for (let index = 0; index < files.length; index++) {
                 this.form.multipleImage.push(files[index])
                 this.previewMultipleImageSrc.push(URL.createObjectURL(files[index]))
             }
-            console.log(this.form);
-            // console.log(this.previewMultipleImageSrc);
         },
         removeItemPreviewImage(index) {
             if (!this.foodId) {
                 this.previewMultipleImageSrc.splice(index, 1);
                 this.form.multipleImage.splice(index, 1);
             } else {
-                let totalOldMultipleImage = this.idMultipleImageEdit.length - this.form.multipleImageRemove.length
+                let totalOldMultipleImage = this.idMultipleImageEdit.length
                 if (index < totalOldMultipleImage) {
                     this.form.multipleImageRemove.push(this.idMultipleImageEdit[index])
                     this.previewMultipleImageSrc.splice(index, 1);
+                    this.idMultipleImageEdit.splice(index, 1);
                 } else {
                     this.previewMultipleImageSrc.splice(index, 1);
                     this.form.multipleImage.splice(index - totalOldMultipleImage, 1);
                 }
+                console.log(this.form.multipleImageRemove);
+                console.log(this.previewMultipleImageSrc);
+
             }
-            console.log(this.form);
         },
         selectImage(index) {
             index == 1 ? this.$refs.inputImage.click() : this.$refs.inputMultipleImage.click();

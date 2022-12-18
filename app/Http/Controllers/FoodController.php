@@ -50,4 +50,13 @@ class FoodController extends BaseController
             ? $this->jsonRender()
             : throw new BadRequestException();
     }
+
+    /**
+     *
+     */
+    public function update(Request $request)
+    {
+        // dd($request->all());
+        return $this->foodService->update($request);
+    }
 }

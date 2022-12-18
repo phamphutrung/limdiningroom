@@ -58,38 +58,77 @@ class FoodService
 
         if ($request->hasFile('image')) {
             $image = $request->image;
-            $fileName = time() . '_' . $image->getClientOriginalName();
-            $FilePath = $image->storeAs('foods', $fileName, 'public');
-
-            $attributesMedia = [
-                'path' => $FilePath,
-                'size' => $image->getSize(),
-                'mime_type' => $image->getMimeType(),
-                'media_type' => Media::$media_type['FOOD'],
-                'media_id' => $food->id
-            ];
-
-            $this->mediaRepository->create($attributesMedia);
+            $this->uploadImage($image, $food->id, false);
         }
 
         if ($request->multipleImage) {
             foreach ($request->multipleImage as $image) {
-                $fileName = time() . '_' . $image->getClientOriginalName();
-                $FilePath = $image->storeAs('foods', $fileName, 'public');
-
-                $attributesMedia = [
-                    'path' => $FilePath,
-                    'is_sub' => true,
-                    'size' => $image->getSize(),
-                    'mime_type' => $image->getMimeType(),
-                    'media_type' => Media::$media_type['FOOD'],
-                    'media_id' => $food->id
-                ];
-
-                $this->mediaRepository->create($attributesMedia);
+                $this->uploadImage($image, $food->id, true);
             }
         }
 
         return $food;
+    }
+
+    /**
+     *
+     */
+    public function update($request)
+    {
+        $attributes = $request->except(['image', 'multipleImage', 'multipleImageRemove', 'foodId']);
+        $attributes['status'] = $attributes['status'] == 'true' ? true : false;
+
+        $food = $this->foodRepository->show($request->foodId);
+        $food->update($attributes);
+
+        if ($request->multipleImage) {
+            if ($request->multipleImage) {
+                foreach ($request->multipleImage as $image) {
+                    $this->uploadImage($image, $food->id);
+                }
+            }
+        }
+
+        if ($request->image) {
+            $mediaOld = $this->mediaRepository->getImage($food->id, Media::$media_type['FOOD']);
+            if ($mediaOld) {
+                if (Storage::exists('public/' . $mediaOld->path)) {
+                    Storage::delete('public/' . $mediaOld->path);
+                }
+                $mediaOld->delete();
+            }
+            $this->uploadImage($request->image, $food->id, false);
+        }
+
+        if ($request->multipleImageRemove) {
+            foreach ($request->multipleImageRemove as $image) {
+                $mediaOld = $this->mediaRepository->show($image);
+                if ($mediaOld) {
+                    if (Storage::exists('public/' . $mediaOld->path)) {
+                        Storage::delete('public/' . $mediaOld->path);
+                    }
+                    $mediaOld->delete();
+                }
+            }
+        }
+
+        return $food;
+    }
+
+    public function uploadImage($image, $media_id, $is_sub = true, $media_type = 'food', $folder = 'foods')
+    {
+        $fileName = time() . '_' . $image->getClientOriginalName();
+        $FilePath = $image->storeAs($folder, $fileName, 'public');
+
+        $attributesMedia = [
+            'path' => $FilePath,
+            'is_sub' => $is_sub,
+            'size' => $image->getSize(),
+            'mime_type' => $image->getMimeType(),
+            'media_type' => $media_type,
+            'media_id' => $media_id
+        ];
+
+        $this->mediaRepository->create($attributesMedia);
     }
 }

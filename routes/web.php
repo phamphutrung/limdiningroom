@@ -23,8 +23,9 @@ Route::middleware([])->group(function () {
     Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::prefix('foods')->group(function () {
-        Route::get('', [FoodController::class, 'list'])->name('food.list');
-        Route::post('', [FoodController::class, 'create'])->name('food.create');
+        Route::get('/', [FoodController::class, 'list'])->name('food.list');
+        Route::post('/', [FoodController::class, 'create'])->name('food.create');
+        Route::post('/update', [FoodController::class, 'update'])->name('food.update');
         Route::get('/show', [FoodController::class, 'show'])->name('food.show');
     });
 });

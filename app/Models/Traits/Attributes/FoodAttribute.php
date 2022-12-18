@@ -14,7 +14,7 @@ trait FoodAttribute
      */
     public function getImageAttribute()
     {
-        $media = Media::where('media_id', $this->id)->where('media_type', Media::$media_type['FOOD'])->first();
+        $media = Media::where('media_id', $this->id)->where('media_type', Media::$media_type['FOOD'])->where('is_sub', false)->first();
 
         return $media->path ?? null;
     }
