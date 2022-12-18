@@ -104,7 +104,7 @@
 
                             <a-form-item :wrapperCol="{ span: 14, offset: 4 }">
                                 <a-button v-if="!foodId" @click="handleCreate" type="primary">Create</a-button>
-                                <a-button v-else @click="handleUpdate" type="primary">Update</a-button>
+                                <a-button v-else @click="handleUpdate" type="primary" :loading="false">Update</a-button>
                             </a-form-item>
                         </a-form>
                     </div>

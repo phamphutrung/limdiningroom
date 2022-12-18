@@ -51,6 +51,7 @@ class FoodService
      */
     public function create($request)
     {
+        dd($request->all());
         $attributes = $request->except(['image', 'multipleImage']);
         $attributes['status'] = $attributes['status'] == 'true' ? true : false;
 
@@ -76,6 +77,7 @@ class FoodService
     public function update($request)
     {
         $attributes = $request->except(['image', 'multipleImage', 'multipleImageRemove', 'foodId']);
+        $attributes['price'] = str_replace(',', '', $attributes['price']);
         $attributes['status'] = $attributes['status'] == 'true' ? true : false;
 
         $food = $this->foodRepository->show($request->foodId);

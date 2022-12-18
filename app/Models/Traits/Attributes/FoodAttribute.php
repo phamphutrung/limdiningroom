@@ -45,8 +45,6 @@ trait FoodAttribute
      */
     public function setPriceAttribute($value)
     {
-        $float = floatval($value);
-
-        return $this->attributes['price'] = number_format($float);
+        return $this->attributes['price'] = number_format($value);
     }
 }
