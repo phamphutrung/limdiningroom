@@ -1,8 +1,9 @@
 <template>
-    <div class="cover-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-light text-center animated fadeInLeft" style="margin-top: 27%;">
+    <div class="cover-page mt-lg-9">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div
+                    class="col-md-6 mx-auto text-light text-center animated fadeInLeft justify-center d-flex align-items-center">
                     <p class="text-light text-cover">About</p>
                 </div>
             </div>
@@ -79,31 +80,3 @@ export default {
 
 }
 </script>
-
-
-<style scoped>
-.cover-page {
-    background-image: url(https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/293028754_116595624439459_7427226240051352718_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=yBQW7aqEMZAAX-0vmRl&_nc_ht=scontent-tpe1-1.xx&oh=00_AfBCcvrj8uXsP4TP7NdPyTeR3tit6TBIZm1Wmr3min8UjQ&oe=6395E65A);
-    background-position: left;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    height: 70vh;
-    z-index: 2;
-}
-
-.cover-page::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(102, 100, 148, 0.301);
-    z-index: -1;
-}
-
-.section {
-    margin: 5rem 0;
-}
-</style>

@@ -1,8 +1,9 @@
 <template>
-    <div class="cover-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-light text-center animated fadeInRight" style="margin-top: 27%;">
+    <div class="cover-page mt-lg-9">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div
+                    class="col-md-6 mx-auto text-light text-center animated fadeInRight justify-center d-flex align-items-center">
                     <p class="text-light text-cover">Reservations</p>
                 </div>
             </div>
@@ -29,8 +30,8 @@
                         <a-input v-model:value="value" placeholder="Phone Number" :bordered="false" class="w-100" />
                     </div>
                     <div class="border mb-6 px-3 py-1 wow fadeInUp" data-wow-delay="0.2s">
-                        <a-select :bordered="false" v-model:value="amountPerson" class="select-person w-100 text-start" placeholder="Person"
-                            @change="{}">
+                        <a-select :bordered="false" v-model:value="amountPerson" class="select-person w-100 text-start"
+                            placeholder="Person" @change="{}">
                             <a-select-option value="1">1 Person</a-select-option>
                             <a-select-option value="2">2 Person</a-select-option>
                             <a-select-option value="3">3 Person</a-select-option>
@@ -70,25 +71,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.cover-page {
-    background-image: url(https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/312118896_146472838134514_3616999144811157247_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=F7oortnS0gEAX9dgY2k&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCsab79hqsmrI1YiZzGCEOYubKK0h2MyrYnfLl9pspI2w&oe=63951490);
-    background-position: 0 -128px;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    height: 70vh;
-    z-index: 2;
-}
-
-.cover-page::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(13, 11, 145, 0.199);
-    z-index: -1;
-}
-</style>

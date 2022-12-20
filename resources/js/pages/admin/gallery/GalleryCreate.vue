@@ -23,15 +23,11 @@
                         <a-divider style="height: 1px; background-color: #7cb305" />
 
                         <a-form :layout="'horizontal'" :model="form" :labelCol="{ span: 4 }" :wrapperCol="{ span: 16 }">
-                            <a-form-item label="Title">
-                                <a-input v-model:value="form.title" placeholder="Enter title" />
-                            </a-form-item>
 
-                            <a-form-item label="Sub title">
-                                <a-input v-model:value="form.sub_title" placeholder="Enter sub title" />
-                            </a-form-item>
-
-                            <a-form-item label="Image">
+                            <a-form-item>
+                                <template #label>
+                                    Image <span class="text-danger ms-1">*</span>
+                                </template>
                                 <input type="file" @change="onChangeImage" ref="inputImage" hidden
                                     accept="image/png, image/jpeg" />
                                 <div class="default-image">
@@ -41,9 +37,13 @@
                                     <button class="btn btn-choose-image" @click="selectImage">Choose image</button>
                                 </div>
                             </a-form-item>
+                            <a-form-item label="Title">
+                                <a-input v-model:value="form.title" placeholder="Enter title" />
+                            </a-form-item>
 
-
-
+                            <a-form-item label="Sub title">
+                                <a-input v-model:value="form.sub_title" placeholder="Enter sub title" />
+                            </a-form-item>
 
                             <a-form-item :wrapperCol="{ span: 14, offset: 4 }">
                                 <a-button v-if="!galleryId" @click="handleCreate" type="primary"
@@ -89,9 +89,14 @@ export default {
                     'content-type': 'multipart/form-data',
                 }
             }).then((res) => {
-                console.log(res);
                 this.saving = false
                 this.$toast.success('Create successfully')
+                this.form = {
+                    title: '',
+                    sub_title: '',
+                    image: null
+                },
+                    this.previewImageSrc = ''
             }).catch((err) => {
                 this.saving = false
             })

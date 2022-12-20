@@ -1,9 +1,9 @@
 <template>
-    <div class="cover-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-light text-center wow zoomIn" data-wow-delay="0.1s"
-                    style="margin-top: 27%;">
+    <div class="cover-page mt-lg-9">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div
+                    class="col-md-6 mx-auto text-light text-center wow zoomIn justify-center d-flex align-items-center">
                     <p class="text-light m-0" :style="{ fontFamily: 'Kristi', fontSizeize: '3em' }">Find Us</p>
                     <p class="text-light m-0 text-cover">Contact</p>
                 </div>
@@ -74,31 +74,3 @@ export default {
 }
 </script>
 
-
-<style scoped>
-.cover-page {
-    background-image: url(https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01-1.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    height: 70vh;
-    z-index: 2;
-}
-
-.cover-page::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(102, 100, 148, 0.301);
-    z-index: -1;
-}
-
-.section {
-    margin: 5rem 0;
-    /* color: #737373; */
-}
-</style>

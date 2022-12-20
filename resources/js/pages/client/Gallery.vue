@@ -1,9 +1,9 @@
 <template>
-    <div class="cover-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-light text-center wow zoomIn" data-wow-delay="0.1s"
-                    style="margin-top: 27%;">
+    <div class="cover-page mt-lg-9">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-md-6 mx-auto text-light text-center wow zoomIn justify-center d-flex align-items-center"
+                    data-wow-delay="0.1s">
                     <p class="text-light text-cover" style="font-size: 6rem;">Gallery</p>
                 </div>
             </div>
@@ -103,27 +103,6 @@ export default {
 
 
 <style scoped>
-.cover-page {
-    background-image: url(https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/313033502_147510431364088_2013833963407046724_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=fVsRBkqpUSoAX-UPGJY&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-tpe1-1.xx&oh=00_AfD3RXQejB5h-odr4psAYjMW1Smvwi-vvBDoewHjM1YK2g&oe=6397717F);
-    background-position: bottom;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    height: 70vh;
-    z-index: 2;
-}
-
-.cover-page::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(175, 147, 22, 0);
-    z-index: -1;
-}
-
 .image-gallery {
     position: relative;
     z-index: 2;

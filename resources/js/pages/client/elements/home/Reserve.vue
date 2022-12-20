@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid position-relative">
+    <div class="container-fluid position-relative section">
         <div class="cover-reserve d-none d-sm-none d-md-flex align-items-center justify-content-center wow zoomIn"
             data-wow-delay="0.5s">
             <div>

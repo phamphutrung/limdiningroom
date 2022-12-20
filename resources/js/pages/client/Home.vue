@@ -1,9 +1,17 @@
 <template>
     <div>
-        <div style="position: relative;">
-            <v-carousel hide-delimiter-background style="height: 100vh;">
+        <div style="position: relative; width: 90%; margin: 0 auto;">
+            <v-carousel hide-delimiter-background style="height: 644px;">
                 <template v-slot:prev="{ props }">
-                    <left-outlined @click="props.onClick" class="text-light btn-slide" />
+                    <span class="h-100 d-flex align-items-center btn-left btn-arrow">
+                        <svg @click="props.onClick" class="text-light" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="57px" height="57px"
+                            viewBox="0 0 59.723 206.221" enable-background="new 0 0 59.723 206.221" xml:space="preserve"
+                            fill="#ffffff">
+                            <polygon points="3.512,206.221 0,204.305 55.168,103.175 0.132,1.91 3.647,0 59.723,103.179">
+                            </polygon>
+                        </svg>
+                    </span>
                 </template>
                 <v-carousel-item
                     src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
@@ -19,13 +27,27 @@
                     cover>
                 </v-carousel-item>
                 <template v-slot:next="{ props }">
-                    <right-outlined @click="props.onClick" class="text-light btn-slide" />
+                    <span class="h-100 d-flex align-items-center btn-right btn-arrow">
+                        <svg @click="props.onClick" class="text-light" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="57px" height="57px"
+                            viewBox="0 0 59.723 206.221" enable-background="new 0 0 59.723 206.221" xml:space="preserve"
+                            fill="#ffffff">
+                            <polygon points="3.512,206.221 0,204.305 55.168,103.175 0.132,1.91 3.647,0 59.723,103.179">
+                            </polygon>
+                        </svg>
+                    </span>
                 </template>
             </v-carousel>
         </div>
+        <svg class="text-light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+            y="0px" width="57px" height="57px" viewBox="0 0 59.723 206.221" enable-background="new 0 0 59.723 206.221"
+            xml:space="preserve" fill="#ffffff">
+            <polygon points="3.512,206.221 0,204.305 55.168,103.175 0.132,1.91 3.647,0 59.723,103.179 	">
+            </polygon>
+        </svg>
 
         <!-- menu -->
-        <div class="container py-6 section">
+        <div class="container py-6">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="mb-5">Most Popular Items</h1>

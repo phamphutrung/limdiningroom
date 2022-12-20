@@ -1,8 +1,8 @@
 <template>
-    <div class="cover-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto text-light text-center wow fadeInDown" data-wow-delay="0.1s" style="margin-top: 27%;">
+    <div class="cover-page mt-lg-9">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-md-6 mx-auto text-light text-center wow fadeInDown justify-center d-flex align-items-center" data-wow-delay="0.1s">
                     <h1 class="text-light text-cover">Our menus</h1>
                 </div>
             </div>
@@ -292,27 +292,6 @@ export default {
 </script>
 
 <style scoped>
-.cover-page {
-    background-image: url(https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2017/01/gastronomika-2-13.jpg);
-    background-position: 0 -128px;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-    height: 70vh;
-    z-index: 2;
-}
-
-.cover-page::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(8, 56, 146, 0.199);
-    z-index: -1;
-}
-
 .cover-menu {
     background-position: 0 -128px;
     background-size: cover;

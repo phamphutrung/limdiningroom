@@ -1,41 +1,46 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0 px-6">
-        <a class="navbar-brand">
-            <div>
-                <p class="text-white text-uppercase m-0 py-1 fw-bold animated slideInLeft"
-                    style="text-align: center; align-self: center;">logo</p>
-                <!-- <img src="static/img/logo.jpg" alt="Logo"> -->
+    <div class="">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand">
+                <div>
+                    <p class="text-uppercase m-0 text-dark fw-bold wow slideInLeft"
+                        style="text-align: center; align-self: center;">logo</p>
+                    <!-- <img src="static/img/logo.jpg" alt="Logo"> -->
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto animated fadeInDown">
+                    <router-link :to="{ name: 'home' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'home' }">
+                        <span class="text-menu">Home</span>
+                    </router-link>
+                    <router-link :to="{ name: 'menu' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'menu' }"><span
+                            class="text-menu">Menu</span></router-link>
+                    <router-link :to="{ name: 'bookTable' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'bookTable' }"><span
+                            class="text-menu">Reserve</span></router-link>
+                    <router-link :to="{ name: 'gallery' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'gallery' }"><span
+                            class="text-menu">Gallery</span></router-link>
+                    <router-link :to="{ name: 'event' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'event' }"><span
+                            class="text-menu">Event</span></router-link>
+                    <router-link :to="{ name: 'contact' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'contact' }"><span
+                            class="text-menu">Contact</span></router-link>
+                    <router-link :to="{ name: 'about' }" class="nav-item nav-link"
+                        :class="{ active: this.$route.name == 'about' }"><span
+                            class="text-menu">About</span></router-link>
+                </div>
+                <menu-outlined class="d-none d-sm-none d-md-block animated slideInRight" @click="toggleDrawer"
+                    style="font-size: 2em;" />
             </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars text-light"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto py-0 pe-4 animated fadeInDown">
-                <router-link :to="{ name: 'home' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'home' }">
-                    <span class="text-menu">Home</span>
-                </router-link>
-                <router-link :to="{ name: 'menu' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'menu' }"><span class="text-menu">Menu</span></router-link>
-                <router-link :to="{ name: 'bookTable' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'bookTable' }"><span
-                        class="text-menu">Reserve</span></router-link>
-                <router-link :to="{ name: 'gallery' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'gallery' }"><span
-                        class="text-menu">Gallery</span></router-link>
-                <router-link :to="{ name: 'event' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'event' }"><span class="text-menu">Event</span></router-link>
-                <router-link :to="{ name: 'contact' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'contact' }"><span
-                        class="text-menu">Contact</span></router-link>
-                <router-link :to="{ name: 'about' }" class="nav-item nav-link"
-                    :class="{ active: this.$route.name == 'about' }"><span class="text-menu">About</span></router-link>
-            </div>
-            <menu-outlined class="text-light me-6 d-none d-sm-none d-md-block animated slideInRight"
-                @click="toggleDrawer" style="font-size: 2em;" />
-        </div>
-    </nav>
+        </nav>
+    </div>
     <span class="wp-btn-right">
         <button class="item-btn-right d-block ms-auto mb-2">
             <a href="tel:0934740229">
@@ -52,7 +57,13 @@
         @after-visible-change="afterVisibleChange">
         <template #extra>
             <router-link v-if="this.$auth.userLogin" :to="{ name: 'admin' }"><v-btn>admin</v-btn></router-link>
-            <arrow-right-outlined class="mt-3 me-4" style="font-size: 2em; cursor: pointer;" @click="toggleDrawer" />
+            <svg class="mkdf-flip-icon mt-7 me-4" style="font-size: 2em; cursor: pointer; transform: rotate(180deg);" @click="toggleDrawer"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="41.521px" height="15.18px" viewBox="0 0 41.521 15.18" enable-background="new 0 0 41.521 15.18"
+                xml:space="preserve">
+                <polygon fill="#000000" points="41.521,7.094 1.9,7.094 8.287,0.707 7.58,0 0,7.58 7.58,15.18 8.288,14.473 1.925,8.094
+	41.521,8.094 "></polygon>
+            </svg>
         </template>
 
         <div class="row">
@@ -82,12 +93,11 @@
 </template>
 
 <script>
-import { MenuOutlined, ArrowRightOutlined, FacebookOutlined } from '@ant-design/icons-vue';
+import { MenuOutlined, FacebookOutlined } from '@ant-design/icons-vue';
 
 export default {
     components: {
         MenuOutlined,
-        ArrowRightOutlined,
         FacebookOutlined
     }
     ,
@@ -121,20 +131,20 @@ export default {
 }
 
 .text-menu {
-    letter-spacing: .16em;
-    font-weight: bolder;
+    letter-spacing: .23em;
+    font-weight: 500;
     /* font-family: ; */
 }
 
 .text-menu::after {
     content: "";
-    width: 0;
+    width: 0%;
     height: 1px;
-    background-color: var(--light);
+    background-color: black;
     position: absolute;
-    top: 54px;
+    top: 56px;
     left: 0;
-    transition: all .6s;
+    transition: all .3s;
 }
 
 .navbar-dark .navbar-nav .nav-link.active .text-menu::after {
@@ -142,11 +152,11 @@ export default {
 }
 
 .sticky-top .text-menu::after {
-    top: 40px;
+    top: 46px;
 }
 
 .nav-item.nav-link:hover .text-menu::after {
-    width: 50%;
+    width: 30%;
 }
 
 @media (max-width: 992px) {
@@ -198,7 +208,7 @@ export default {
 }
 
 .wp-btn-right .item-btn-right:hover a {
-    color: black;
+    color: #000000;
 }
 
 .wp-btn-right .item-btn-right:hover a span {

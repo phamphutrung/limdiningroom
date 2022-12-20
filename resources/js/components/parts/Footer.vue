@@ -47,9 +47,11 @@
             </div>
         </div>
     </footer>
-    <a href="#" class="text-dark back-to-top"><span class="material-icons">
-            keyboard_arrow_up
-        </span>
+    <a href="#" class="text-dark back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="57px"
+            height="57px" viewBox="0 0 59.723 206.221" enable-background="new 0 0 59.723 206.221" xml:space="preserve">
+            <polygon points="3.512,206.221 0,204.305 55.168,103.175 0.132,1.91 3.647,0 59.723,103.179 	"></polygon>
+        </svg>
     </a>
 </template>
 
