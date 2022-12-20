@@ -27,6 +27,14 @@ class GalleryService extends BaseService
         $this->mediaRepository = $mediaRepository;
     }
 
+    /**
+     *
+     */
+    public function list()
+    {
+        return $this->galleryRepository->list();
+    }
+
     public function create($request)
     {
         $attributes = $request->except('image');

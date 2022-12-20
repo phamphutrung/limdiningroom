@@ -16,6 +16,7 @@ import FoodManager from './pages/admin/food/FoodManager.vue';
 import FoodCreate from './pages/admin/food/FoodCreate.vue'
 import GalleryManager from './pages/admin/gallery/GalleryManager.vue';
 import GalleryCreate from './pages/admin/gallery/GalleryCreate.vue';
+import WineManager from './pages/admin/wine/WineManager.vue';
 import FeedBack from './pages/admin/FeedBack.vue';
 
 const routes = [
@@ -104,6 +105,12 @@ const routes = [
                 name: 'gallery-create',
                 component: GalleryCreate,
                 meta: { title: 'Lim | Create Gallery' },
+            },
+            {
+                path: 'wine',
+                name: 'wine-manager',
+                component: WineManager,
+                meta: { title: 'Lim | Wine Gallery' },
             },
             {
                 path: 'feedback',

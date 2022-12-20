@@ -18,7 +18,7 @@
                 <i class="fa-solid fa-wine-glass ms-1 me-5" :style="{ fontSize: '1.3em' }"></i>
                 <span>
                     Wine Management
-                    <router-link :to="{}"></router-link>
+                    <router-link :to="{ name: 'wine-manager' }"></router-link>
                 </span>
             </a-menu-item>
             <a-menu-item key="gallery-manager">

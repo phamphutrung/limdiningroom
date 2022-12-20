@@ -33,6 +33,7 @@
                 'foodShow' => route('food.show'),
                 'foodUpdate' => route('food.update'),
                 'galleryCreate' => route('gallery.create'),
+                'galleryList' => route('gallery.list'),
             ];
             $auth = [
                 'userLogin' => auth()->check() ? auth()->user() : false,

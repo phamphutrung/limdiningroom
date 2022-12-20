@@ -16,6 +16,6 @@ class GalleryRepository extends BaseRepository
      */
     public function list($params = null)
     {
-        return $this->model::paginate(100);
+        return $this->model::latest()->paginate(50);
     }
 }

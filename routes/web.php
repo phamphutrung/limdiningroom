@@ -33,6 +33,7 @@ Route::middleware([])->group(function () {
 
     Route::prefix('/galleries')->group(function () {
         Route::post('/', [GalleryController::class, 'create'])->name('gallery.create');
+        Route::get('/', [GalleryController::class, 'list'])->name(('gallery.list'));
     });
 });
 
