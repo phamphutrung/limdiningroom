@@ -12,9 +12,11 @@ import Gallery from './pages/client/Gallery.vue';
 import NotFound from './pages/client/NotFound.vue';
 import Login from './pages/admin/Login.vue';
 
-import FoodManager from './pages/admin/FoodManager.vue';
-import FoodCreate from './pages/admin/FoodCreate.vue'
-import GalleryManager from './pages/admin/GalleryManager.vue';
+import FoodManager from './pages/admin/food/FoodManager.vue';
+import FoodCreate from './pages/admin/food/FoodCreate.vue'
+import GalleryManager from './pages/admin/gallery/GalleryManager.vue';
+import GalleryCreate from './pages/admin/gallery/GalleryCreate.vue';
+import FeedBack from './pages/admin/FeedBack.vue';
 
 const routes = [
     {
@@ -96,6 +98,18 @@ const routes = [
                 name: 'gallery-manager',
                 component: GalleryManager,
                 meta: { title: 'Lim | Gallery Management' },
+            },
+            {
+                path: 'gallery/create',
+                name: 'gallery-create',
+                component: GalleryCreate,
+                meta: { title: 'Lim | Create Gallery' },
+            },
+            {
+                path: 'feedback',
+                name: 'feedback-manager',
+                component: FeedBack,
+                meta: { title: 'Lim | Feedback Management' }
             }
         ]
     },

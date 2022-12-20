@@ -7,7 +7,7 @@ use App\Repositories\FoodRepository;
 use App\Repositories\MediaRepository;
 use Illuminate\Support\Facades\Storage;
 
-class FoodService
+class FoodService extends BaseService
 {
     /**
      *
@@ -20,7 +20,8 @@ class FoodService
     protected $mediaRepository;
 
     /**
-     * @param FoodRepository
+     * @param FoodRepository $foodRepository
+     * @param MediaRepository $mediaRepository
      */
     public function __construct(FoodRepository $foodRepository, MediaRepository $mediaRepository)
     {
@@ -51,7 +52,6 @@ class FoodService
      */
     public function create($request)
     {
-        dd($request->all());
         $attributes = $request->except(['image', 'multipleImage']);
         $attributes['status'] = $attributes['status'] == 'true' ? true : false;
 
@@ -59,12 +59,12 @@ class FoodService
 
         if ($request->hasFile('image')) {
             $image = $request->image;
-            $this->uploadImage($image, $food->id, false);
+            $this->uploadImage($image, $food->id, Media::$media_type['FOOD'], 'foods');
         }
 
         if ($request->multipleImage) {
             foreach ($request->multipleImage as $image) {
-                $this->uploadImage($image, $food->id, true);
+                $this->uploadImage($image, $food->id, Media::$media_type['FOOD'], 'foods', true);
             }
         }
 
@@ -86,7 +86,7 @@ class FoodService
         if ($request->multipleImage) {
             if ($request->multipleImage) {
                 foreach ($request->multipleImage as $image) {
-                    $this->uploadImage($image, $food->id);
+                    $this->uploadImage($image, $food->id, Media::$media_type['FOOD'], 'foods', true);
                 }
             }
         }
@@ -99,7 +99,7 @@ class FoodService
                 }
                 $mediaOld->delete();
             }
-            $this->uploadImage($request->image, $food->id, false);
+            $this->uploadImage($request->image, $food->id, Media::$media_type['FOOD'], 'foods');
         }
 
         if ($request->multipleImageRemove) {
@@ -115,22 +115,5 @@ class FoodService
         }
 
         return $food;
-    }
-
-    public function uploadImage($image, $media_id, $is_sub = true, $media_type = 'food', $folder = 'foods')
-    {
-        $fileName = time() . '_' . $image->getClientOriginalName();
-        $FilePath = $image->storeAs($folder, $fileName, 'public');
-
-        $attributesMedia = [
-            'path' => $FilePath,
-            'is_sub' => $is_sub,
-            'size' => $image->getSize(),
-            'mime_type' => $image->getMimeType(),
-            'media_type' => $media_type,
-            'media_id' => $media_id
-        ];
-
-        $this->mediaRepository->create($attributesMedia);
     }
 }

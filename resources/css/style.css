@@ -210,3 +210,45 @@ h6 {
     text-transform: capitalize;
     font-size: 6em;
 }
+
+/* create image */
+.default-image {
+    position: relative;
+    width: 12em;
+    height: 12em;
+    display: inline-block;
+    margin: 0.3em;
+}
+
+.default-image .btn-choose-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border-color: rgb(168, 163, 163);
+    padding: 2px 4px;
+    font-size: 12px;
+}
+
+.default-image img {
+    opacity: 0.3;
+    transition: all 0.3s;
+    cursor: pointer;
+    height: 100%;
+}
+
+.default-image img.image-picked {
+    opacity: 1;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.default-image:hover img {
+    opacity: 0.1;
+}
+
+.default-image:hover .btn-choose-image {
+    display: inline;
+}
+/* end create image */

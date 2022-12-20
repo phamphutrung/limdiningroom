@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MediaController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,10 +30,17 @@ Route::middleware([])->group(function () {
         Route::post('/update', [FoodController::class, 'update'])->name('food.update');
         Route::get('/show', [FoodController::class, 'show'])->name('food.show');
     });
+
+    Route::prefix('/galleries')->group(function () {
+        Route::post('/', [GalleryController::class, 'create'])->name('gallery.create');
+    });
 });
+
 
 //upload image
 Route::post('/upload', [MediaController::class, 'store'])->name('upload');
+
+
 
 Route::get('/{any}', function () {
     return view('app');

@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
         $tables = [
             'users',
             'food',
-            'media'
+            'media',
+            'messages',
+            'customers',
+            'galleries'
         ];
 
         $this->truncateMultiple($tables);
@@ -33,5 +36,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Food::factory(1)->create();
+        \App\Models\Customer::factory(5)->create();
+        \App\Models\Message::factory(5)->create();
     }
 }

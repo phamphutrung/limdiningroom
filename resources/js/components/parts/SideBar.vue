@@ -14,7 +14,7 @@
                     <router-link :to="{ name: 'food-manager' }"></router-link>
                 </span>
             </a-menu-item>
-            <a-menu-item key="-manager">
+            <a-menu-item key="wine-manager">
                 <i class="fa-solid fa-wine-glass ms-1 me-5" :style="{ fontSize: '1.3em' }"></i>
                 <span>
                     Wine Management
@@ -32,18 +32,16 @@
                 <template #title>
                     <span>
                         <v-icon class="me-5" icon="mdi-diamond"></v-icon>
-                        <span>User</span>
+                        <span>Customer</span>
                     </span>
                 </template>
-                <a-menu-item key="3">
-                    <v-icon class="me-4" icon="mdi-image"></v-icon>
+                <a-menu-item :class="{ marginLeft: '5em' }" key="feedback-manager">
+                    <v-icon icon="mdi-message-text-outline"></v-icon>
                     <span>
-                        Gallery Management
-                        <router-link :to="{ name: 'gallery-manager' }"></router-link>
+                        Feedback
+                        <router-link :to="{ name: 'feedback-manager' }"></router-link>
                     </span>
                 </a-menu-item>
-                <a-menu-item key="4">Bill</a-menu-item>
-                <a-menu-item key="5">Alex</a-menu-item>
             </a-sub-menu>
 
             <a-popconfirm title="Are you sure logout?" ok-text="Yes, Logout now" cancel-text="No" @confirm="logout">

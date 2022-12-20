@@ -31,7 +31,8 @@
                 'foodList' => route('food.list'),
                 'foodCreate' => route('food.create'),
                 'foodShow' => route('food.show'),
-                'foodUpdate' => route('food.update')
+                'foodUpdate' => route('food.update'),
+                'galleryCreate' => route('gallery.create'),
             ];
             $auth = [
                 'userLogin' => auth()->check() ? auth()->user() : false,
