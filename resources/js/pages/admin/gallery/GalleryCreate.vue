@@ -3,7 +3,7 @@
         <a-breadcrumb style="margin: 16px 0">
             <a-breadcrumb-item>Admin</a-breadcrumb-item>
             <a-breadcrumb-item>Gallery Management</a-breadcrumb-item>
-            <a-breadcrumb-item>Create Gallery</a-breadcrumb-item>
+            <a-breadcrumb-item>{{ galleryId ? 'Edit' : 'Create ' }}</a-breadcrumb-item>
         </a-breadcrumb>
 
         <div class="container-fluid">
@@ -11,7 +11,7 @@
                 <div class="card rounded-0">
                     <div class="card-body">
                         <div class="d-flex justify-space-between">
-                            <h5 class="d-inline-block my-1">{{ galleryId ? 'Update Gallery' : 'Create Gallery' }}</h5>
+                            <h5 class="d-inline-block my-1">{{ galleryId ? 'Edit Gallery' : 'Create Gallery' }}</h5>
                             <router-link :to="{ name: 'gallery-manager' }">
                                 <button class="btn btn-sm btn-outline-success">
                                     <v-icon :style="{ fontSize: '1.4em', paddingBottom: '4px' }"
@@ -68,19 +68,57 @@ export default {
             form: {
                 title: '',
                 sub_title: '',
-                image: null
+                image: null,
             },
             previewImageSrc: '',
             galleryId: false,
         }
     },
+    mounted() {
+        if (this.galleryId) {
+            this.getGalleryEdit(this.galleryId)
+            this.form.galleryId = this.galleryId
+        }
+    },
     methods: {
+        async getGalleryEdit(id) {
+            await request.get(this.$dataUrl.galleryShow, {
+                params: { id: id }
+            }).then((res) => {
+                let result = res.data.payload
+                if (result.image) {
+                    this.previewImageSrc = '/storage/' + result.image
+                }
+                this.form.title = result.title ?? ''
+                this.form.sub_title = result.sub_title ?? ''
+            }).catch((err) => {
+                if (err.response.status == 404) {
+                    this.$router.push({ name: 'gallery-create' })
+                    this.galleryId = false
+                }
+            })
+        },
         onChangeImage(e) {
             this.form.image = e.target.files[0];
             this.previewImageSrc = URL.createObjectURL(this.form.image);
         },
         selectImage() {
             this.$refs.inputImage.click()
+        },
+        test() {
+            console.log('ok');
+        },
+        async handleUpdate() {
+            console.log('ok');
+            this.saving = true
+            await request.post(this.$dataUrl.galleryUpdate, this.form, {
+                headers: {
+                    'content-type': 'multipart/form-data',
+                }
+            }).then((res) => {
+                this.saving = false
+                this.$toast.success('Update successfully')
+            })
         },
         async handleCreate() {
             this.saving = true
@@ -101,9 +139,11 @@ export default {
                 this.saving = false
             })
         },
-        handleUpdate() {
-
-        }
     },
+    created() {
+        if (this.$route.params.id) {
+            this.galleryId = this.$route.params.id;
+        }
+    }
 }
 </script>

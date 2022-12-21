@@ -36,7 +36,7 @@
                         :class="{ active: this.$route.name == 'about' }"><span
                             class="text-menu">About</span></router-link>
                 </div>
-                <menu-outlined class="d-none d-sm-none d-md-block animated slideInRight" @click="toggleDrawer"
+                <menu-outlined class="d-none d-sm-none d-md-block wow slideInRight" data-wow-delay="0.1s" @click="toggleDrawer"
                     style="font-size: 2em;" />
             </div>
         </nav>
@@ -130,11 +130,6 @@ export default {
     border: 1px solid var(--dark);
 }
 
-.text-menu {
-    letter-spacing: .23em;
-    font-weight: 500;
-    /* font-family: ; */
-}
 
 .text-menu::after {
     content: "";

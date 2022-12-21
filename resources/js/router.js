@@ -113,6 +113,12 @@ const routes = [
                 meta: { title: 'Lim | Wine Gallery' },
             },
             {
+                path: 'gallery/edit/:id',
+                name: 'gallery-edit',
+                component: GalleryCreate,
+                meta: { title: 'Lim | Edit Gallery' }
+            },
+            {
                 path: 'feedback',
                 name: 'feedback-manager',
                 component: FeedBack,

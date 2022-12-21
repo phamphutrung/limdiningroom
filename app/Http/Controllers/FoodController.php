@@ -56,7 +56,6 @@ class FoodController extends BaseController
      */
     public function update(Request $request)
     {
-        // dd($request->all());
         return $this->foodService->update($request);
     }
 }

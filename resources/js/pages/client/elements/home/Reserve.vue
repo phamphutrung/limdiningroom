@@ -1,9 +1,9 @@
 <template>
     <div class="container-fluid position-relative section">
         <div class="cover-reserve d-none d-sm-none d-md-flex align-items-center justify-content-center wow zoomIn"
-            data-wow-delay="0.5s">
+            data-wow-delay="0.5s" data-wow-duration="1.3s">
             <div>
-                <h3 class="text-white text-center" style="letter-spacing: .1em;">
+                <h3 class="text-white text-center m-0 p-0" style="letter-spacing: .1em;">
                     <p>Lorem ipsum it amet,</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi.</p>
                 </h3>
@@ -18,7 +18,7 @@
             </div>
             <div class="row">
                 <div class="col-md-10 detail-reserve">
-                    <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.1s">
+                    <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.3s">
                         <a-select :bordered="false" v-model:value="amountPerson" class="select-person" @change="{}">
                             <a-select-option value="1">1 Person</a-select-option>
                             <a-select-option value="2">2 Person</a-select-option>
@@ -28,16 +28,16 @@
 
                         </a-select>
                     </div>
-                    <div class="mx-3  text-uppercase sub-text wow zoomIn" data-wow-delay="0.2s">For</div>
-                    <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="mx-3  text-uppercase sub-text wow zoomIn" data-wow-delay="0.4s">For</div>
+                    <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.5s">
                         <a-date-picker v-model:value="date" :bordered="false" :style="{ width: '100%' }" />
                     </div>
-                    <div class="mx-3  text-uppercase sub-text wow zoomIn" data-wow-delay="0.2s">At</div>
-                    <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.2s">
+                    <div class="mx-3  text-uppercase sub-text wow zoomIn" data-wow-delay="0.6s">At</div>
+                    <div class="border item-reserve px-3 py-1 wow fadeInDown" data-wow-delay="0.7s">
                         <a-date-picker v-model:value="time" :bordered="false" :picker="'time'"
                             :style="{ width: '100%' }" />
                     </div>
-                    <div class="item-reserve wow fadeInDown" data-wow-delay="0.4s">
+                    <div class="item-reserve wow fadeInDown" data-wow-delay="0.8s">
                         <router-link
                             :to="{ name: 'bookTable', query: { amount: amountPerson, date: date, time: time } }">
                             <button class="btn-global border">RESERVE</button>
@@ -65,7 +65,7 @@ export default {
 /* ** reserve ** */
 .cover-reserve {
     margin: 0 0.5em;
-    background-image: url(https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/315904258_156068473841617_8380899548986618921_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=dsSrfhvaF_QAX9TF8MP&_nc_ht=scontent-hkg4-1.xx&oh=00_AfC9NBXUNRujnvBBG-TTMw3l9EjLAjpMHD1PjdDBr0b4CA&oe=63960F06);
+    background-image: url('/static/img/cover-reserve.jpg');
     background-position: 0 -160px;
     background-size: cover;
     background-attachment: fixed;

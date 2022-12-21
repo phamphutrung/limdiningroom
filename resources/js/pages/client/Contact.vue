@@ -3,8 +3,7 @@
         <div class="container h-100">
             <div class="row h-100">
                 <div
-                    class="col-md-6 mx-auto text-light text-center wow zoomIn justify-center d-flex align-items-center">
-                    <p class="text-light m-0" :style="{ fontFamily: 'Kristi', fontSizeize: '3em' }">Find Us</p>
+                    class="col-md-6 mx-auto text-light text-center wow flipInX justify-center d-flex align-items-center">
                     <p class="text-light m-0 text-cover">Contact</p>
                 </div>
             </div>

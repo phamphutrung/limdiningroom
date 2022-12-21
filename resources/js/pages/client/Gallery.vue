@@ -2,8 +2,8 @@
     <div class="cover-page mt-lg-9">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-md-6 mx-auto text-light text-center wow zoomIn justify-center d-flex align-items-center"
-                    data-wow-delay="0.1s">
+                <div
+                    class="col-md-6 mx-auto text-light text-center fadeInDown wow justify-center d-flex align-items-center">
                     <p class="text-light text-cover" style="font-size: 6rem;">Gallery</p>
                 </div>
             </div>
@@ -11,7 +11,7 @@
     </div>
 
 
-    <div class="container-fluid">
+    <div class="container-fluid wow fadeInUp">
         <div class="row mt-6 d-flex justify-center">
             <div class="col-md-5 col-sm-5 col-lg-4 text-center">
                 <v-tabs fixed-tabs bg-color="" v-model="tab">

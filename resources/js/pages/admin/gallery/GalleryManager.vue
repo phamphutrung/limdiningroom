@@ -22,7 +22,8 @@
                         <a-table :columns="columns" :data-source="galleries" :pagination="false">
                             <template #bodyCell="{ column, record }">
                                 <template v-if="column.key === 'action'">
-                                    <router-link :to="{}">
+                                    <router-link :to="{ name: 'gallery-edit', params: { id: record.id } }"
+                                        class="text-dark">
                                         <a-button class="me-1">
                                             <v-icon icon="mdi-border-color" />
                                         </a-button>

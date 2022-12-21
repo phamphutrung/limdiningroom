@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container wow fadeInLeft">
         <div class="section">
             <div class="row">
                 <div class="col-md-6 text-center mx-auto">

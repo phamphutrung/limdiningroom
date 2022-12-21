@@ -34,6 +34,8 @@
                 'foodUpdate' => route('food.update'),
                 'galleryCreate' => route('gallery.create'),
                 'galleryList' => route('gallery.list'),
+                'galleryShow' => route('gallery.show'),
+                'galleryUpdate' => route('gallery.update')
             ];
             $auth = [
                 'userLogin' => auth()->check() ? auth()->user() : false,

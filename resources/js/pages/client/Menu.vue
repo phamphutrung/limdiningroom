@@ -2,14 +2,15 @@
     <div class="cover-page mt-lg-9">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-md-6 mx-auto text-light text-center wow fadeInDown justify-center d-flex align-items-center" data-wow-delay="0.1s">
+                <div
+                    class="col-md-6 mx-auto text-light text-center wow fadeInLeft justify-center d-flex align-items-center">
                     <h1 class="text-light text-cover">Our menus</h1>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid">
-        <div class="section">
+        <div class="section wow fadeInRight">
             <div class="row text-center">
                 <div class="col-md-5 mx-auto">
                     <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Eat what you love</h2>
@@ -192,7 +193,7 @@
                                 <div class="cover-menu cover-mn-2">
 
                                 </div>
-                                <div class="container section">
+                                <div class="container section wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="row g-4">
                                         <div class="col-lg-6 mb-6">
                                             <div class="d-flex align-items-center">
@@ -293,7 +294,6 @@ export default {
 
 <style scoped>
 .cover-menu {
-    background-position: 0 -128px;
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -313,10 +313,12 @@ export default {
 }
 
 .cover-mn-1 {
-    background-image: url(https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/297471850_125254880240200_1774514562586124700_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=hDstvAnq0SkAX-Z9IMO&_nc_ht=scontent-hkg4-2.xx&oh=00_AfDEwYxpHkltNAVFHnRP0VfUImPKhj_RJ9TIdhFLfxCf-w&oe=63963866);
+    background-image: url('/static/img/cover-food-menu.jpg');
+    background-position: 0 -100px;
 }
 
 .cover-mn-2 {
-    background-image: url(https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/292482443_115812034517818_8728537604591438454_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=pxrcN3gfGa8AX-TBrc0&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-hkg4-1.xx&oh=00_AfBjIgNayphvbxgDR7E3BkV_npmdYQ9e8qhNdsO-BZ2LAg&oe=63959E50);
+    background-image: url('/static/img/cover-wine.jpg');
+    background-position: 0 -480px;
 }
 </style>
