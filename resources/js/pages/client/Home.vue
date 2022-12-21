@@ -290,6 +290,23 @@
                 <h1 class="mb-5">Most Especial Items</h1>
             </div>
             <div class="line"></div>
+            <div class="row mt-15">
+                <div class="col-lg-4" v-for="n, i in 3" :key="i">
+                    <div class="box-item">
+                        <div class="wp-image-box">
+                            <img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" alt="">
+                        </div>
+                        <div class="content-box">
+                            <p class="title-box">
+                                This is name item
+                            </p>
+                            <p class="sub-title-box">
+                                this is name sub_item
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -309,12 +326,46 @@ export default {
 </script>
 
 <style scoped>
-.btn-slide {
-    font-size: 3em;
-    transition: all ease-in 0.2s;
+.box-item {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: .5em;
+    transition: .3s;
 }
 
-.btn-slide:hover {
-    font-size: 3.2em;
+.box-item .wp-image-box {
+    width: 100%;
+    height: 246px;
+    overflow: hidden;
+}
+
+.box-item .wp-image-box img {
+    max-height: 100%;
+    transition: 0.3s;
+}
+
+.box-item .content-box {
+    padding: .9em;
+}
+
+.box-item .content-box p.title-box {
+    font-weight: 400;
+    font-size: 1.4em;
+    margin-bottom: .5em;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.box-item .content-box p.sub-title-box {
+    color: rgb(92, 96, 99);
+    letter-spacing: .05em;
+}
+
+.box-item:hover {
+    box-shadow: none;
+    transform: translateY(3px);
+}
+
+.box-item .wp-image-box:hover img {
+    transform: scale(103%);
 }
 </style>
