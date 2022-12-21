@@ -165,15 +165,20 @@ h6 {
 .btn-arrow {
     transition: 0.3s;
 }
-.btn-arrow.btn-left {
+.btn-left {
     transform: rotate(180deg);
 }
-.btn-arrow svg {
+.btn-left svg {
+    cursor: pointer;
+}
+.btn-right svg {
     cursor: pointer;
 }
 .btn-arrow:hover {
     background-color: rgba(77, 74, 74, 0.144);
 }
+
+
 /* end button arrow */
 
 /* btn */
@@ -218,7 +223,7 @@ h6 {
 }
 
 .section {
-    margin: 8rem auto;
+    margin: 10rem auto;
 }
 
 /* back to top */

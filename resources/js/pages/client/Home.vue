@@ -287,12 +287,66 @@
 
         <div class="container section">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="m-0" style="font-family: kristi; font-size: 5em;">"</h1>
+            </div>
+            <div class="row mx-auto wow fadeInUp">
+                <v-carousel height="300" hide-delimiters>
+                    <template v-slot:prev="{ props }">
+                        <span class="h-100 d-flex align-items-center btn-arrow-normal btn-left">
+                            <svg @click="props.onClick" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="57px" height="57px"
+                                viewBox="0 0 59.723 206.221" enable-background="new 0 0 59.723 206.221"
+                                xml:space="preserve" fill="#000">
+                                <polygon
+                                    points="3.512,206.221 0,204.305 55.168,103.175 0.132,1.91 3.647,0 59.723,103.179">
+                                </polygon>
+                            </svg>
+                        </span>
+                    </template>
+                    <v-carousel-item v-for="(n, i) in 2" :key="i">
+                        <!-- <v-sheet height=""> -->
+                        <div style="height: 100%;">
+                            <div class="d-flex text-center justify-content-center align-items-center">
+                                <div class="w-75">
+                                    <h1 class="mb-13">Lorem ipsum dolor sit .</h1>
+                                    <div class="line"></div>
+                                    <p class="mt-12" style="font-size: 1.5em; color: #5b5b5b; font-weight: 300;">Lorem
+                                        ipsum dolor sit amet consectetur sit amet consectetur sit amet consectetur sit
+                                        amet
+                                        consectetur, adipisicing
+                                        elit. Asperiores natus et
+                                        nobis?</p>
+                                    <p style="font-weight: 500; font-size: 1.3em;">Lorem ipsum dolor, sit amet
+                                        consectetur adipisicing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </v-sheet> -->
+                    </v-carousel-item>
+                    <template v-slot:next="{ props }">
+                        <span class="h-100 d-flex align-items-center btn-arrow-normal btn-right">
+                            <svg @click="props.onClick" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="57px" height="57px"
+                                viewBox="0 0 59.723 206.221" enable-background="new 0 0 59.723 206.221"
+                                xml:space="preserve" fill="#000">
+                                <polygon
+                                    points="3.512,206.221 0,204.305 55.168,103.175 0.132,1.91 3.647,0 59.723,103.179">
+                                </polygon>
+                            </svg>
+                        </span>
+                    </template>
+                </v-carousel>
+            </div>
+        </div>
+
+        <div class="container section wow fadeInUp">
+            <div class="text-center">
                 <h1 class="mb-5">Most Especial Items</h1>
             </div>
             <div class="line"></div>
             <div class="row mt-15">
-                <div class="col-lg-4" v-for="n, i in 3" :key="i">
-                    <div class="box-item">
+                <div class="col-md-4 mb-5" v-for="n, i in 3" :key="i">
+                    <div class="box-item wow fadeInUp" :data-wow-delay="'0.' + i + 's'">
                         <div class="wp-image-box">
                             <img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" alt="">
                         </div>
@@ -307,7 +361,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
+
     </div>
 </template>
 <script>
@@ -322,6 +379,18 @@ export default {
         RightOutlined,
         LeftOutlined
     },
+    data() {
+        return {
+            slides: [
+                'First',
+                'Second',
+                'Third',
+                'Fourth',
+                'Fifth',
+            ],
+
+        }
+    },
 }
 </script>
 
@@ -334,12 +403,13 @@ export default {
 
 .box-item .wp-image-box {
     width: 100%;
-    height: 246px;
+    height: 14rem;
     overflow: hidden;
 }
 
 .box-item .wp-image-box img {
     max-height: 100%;
+    width: 100%;
     transition: 0.3s;
 }
 
