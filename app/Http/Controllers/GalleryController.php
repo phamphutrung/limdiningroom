@@ -54,4 +54,14 @@ class GalleryController extends BaseController
             ? $this->jsonRender()
             : throw new BadRequestException();
     }
+
+    /**
+     *
+     */
+    public function delete(Request $request)
+    {
+        return $this->galleryService->delete($request)
+            ? $this->jsonRender()
+            : throw new BadRequestException();
+    }
 }

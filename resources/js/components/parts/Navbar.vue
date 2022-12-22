@@ -1,18 +1,18 @@
 <template>
     <div class="">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand">
+            <a class="navbar-brand wow slideInLeft m-0" data-wow-duration="2s">
                 <div>
-                    <p class="text-uppercase m-0 text-dark fw-bold wow slideInLeft"
-                        style="text-align: center; align-self: center;">logo</p>
-                    <!-- <img src="static/img/logo.jpg" alt="Logo"> -->
+                    <!-- <p class="text-uppercase m-0 text-dark fw-bold" style="text-align: center; align-self: center;">logo
+                    </p> -->
+                    <img src="/static/img/logo.png" alt="Logo">
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto animated fadeInDown">
+                <div class="navbar-nav mx-auto wow slideInDown" data-wow-duration="1.2s">
                     <router-link :to="{ name: 'home' }" class="nav-item nav-link"
                         :class="{ active: this.$route.name == 'home' }">
                         <span class="text-menu">Home</span>
@@ -36,8 +36,8 @@
                         :class="{ active: this.$route.name == 'about' }"><span
                             class="text-menu">About</span></router-link>
                 </div>
-                <menu-outlined class="d-none d-sm-none d-md-block wow slideInRight" data-wow-delay="0.1s" @click="toggleDrawer"
-                    style="font-size: 2em;" />
+                <menu-outlined class="d-none d-sm-none d-md-block wow slideInRight" data-wow-duration="2s"
+                    @click="toggleDrawer" style="font-size: 2em;" />
             </div>
         </nav>
     </div>
@@ -56,11 +56,11 @@
     <a-drawer v-model:visible="visible" class="custom-class" closeIcon="" placement="right"
         @after-visible-change="afterVisibleChange">
         <template #extra>
-            <router-link v-if="this.$auth.userLogin" :to="{ name: 'admin' }"><v-btn>admin</v-btn></router-link>
-            <svg class="mkdf-flip-icon mt-7 me-4" style="font-size: 2em; cursor: pointer; transform: rotate(180deg);" @click="toggleDrawer"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="41.521px" height="15.18px" viewBox="0 0 41.521 15.18" enable-background="new 0 0 41.521 15.18"
-                xml:space="preserve">
+            <router-link v-if="this.$auth.userLogin" :to="{ name: 'admin' }"><v-btn class="mt-7 me-16">admin</v-btn></router-link>
+            <svg class="mkdf-flip-icon mt-7 me-4" style="font-size: 2em; cursor: pointer; transform: rotate(180deg);"
+                @click="toggleDrawer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" width="41.521px" height="15.18px" viewBox="0 0 41.521 15.18"
+                enable-background="new 0 0 41.521 15.18" xml:space="preserve">
                 <polygon fill="#000000" points="41.521,7.094 1.9,7.094 8.287,0.707 7.58,0 0,7.58 7.58,15.18 8.288,14.473 1.925,8.094
 	41.521,8.094 "></polygon>
             </svg>
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-12 mx-auto text-center">
                 <div class="">
-                    <img class="logo-footer mt-5" src="static/img/logo.jpg"
+                    <img class="logo-footer mt-5" src="static/img/logo.png"
                         alt="                                                                                                                                                                            ">
                 </div>
                 <div class="info text-start">

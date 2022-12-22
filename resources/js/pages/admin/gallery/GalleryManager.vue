@@ -29,7 +29,7 @@
                                         </a-button>
                                     </router-link>
                                     <a-popconfirm title="Are you sure delete?" ok-text="Yes, Delete now"
-                                        cancel-text="No" @confirm="{}">
+                                        cancel-text="No" @confirm="handleDelete(record.id)">
                                         <a-button>
                                             <v-icon icon="mdi-delete-circle" />
                                         </a-button>
@@ -78,6 +78,21 @@ export default {
             await request.get(this.$dataUrl.galleryList).then((res) => {
                 this.galleries = res.data.payload
                 console.log(res);
+            })
+        },
+        async handleDelete(id) {
+            await request.delete(this.$dataUrl.galleryList, {
+                params: {
+                    galleryId: id
+                }
+            }).then((res) => {
+                this.$toast.success('Deleted successfully')
+                this.galleries.forEach((item, index) => {
+                    if (item.id == id) {
+                        this.galleries.splice(index, 1)
+                        return false
+                    }
+                });
             })
         }
     },

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12 col-lg-3 mx-auto text-center">
                 <div class="">
-                    <img class="logo-footer" src="static/img/logo.jpg"
+                    <img class="logo-footer" src="static/img/logo.png"
                         alt="                                                                                                                                                                            ">
                 </div>
                 <div class="info">

@@ -1,5 +1,5 @@
 <template>
-    <div class="cover-page mt-lg-9">
+    <div class="cover-page">
         <div class="container h-100">
             <div class="row h-100">
                 <div
@@ -16,15 +16,15 @@
                     <h6><i class="fa-solid fa-location-dot"></i> Address</h6>
                     <p class="text-detail" style="font-weight: lighter;">96 Nguyen Thai Hoc, Hoi An, Vietnam</p>
                 </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.2s">
                     <h6><i class="fa-solid fa-phone"></i> Telephone</h6>
                     <p class="text-detail" style="font-weight: lighter;">+84 93 474 02 29</p>
                 </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.3s">
                     <h6><i class="fa-solid fa-envelope"></i> E-mail</h6>
                     <p class="text-detail" style="font-weight: lighter;">contact@limdiningroom.com</p>
                 </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="col-md-3 wow fadeInUp" data-wow-delay="0.4s">
                     <h6><i class="fa-solid fa-earth-americas"></i> Website</h6>
                     <p class="text-detail" style="font-weight: lighter;">http://www.limdiningroom.com/</p>
                 </div>

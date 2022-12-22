@@ -1,5 +1,5 @@
 <template>
-    <div class="cover-page mt-lg-9">
+    <div class="cover-page">
         <div class="container h-100">
             <div class="row h-100">
                 <div

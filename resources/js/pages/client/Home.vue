@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div style="position: relative; width: 90%; margin: 0 auto;" class="wow fadeIn" data-wow-delay="0.2s">
-            <v-carousel hide-delimiter-background style="height: 644px;">
+        <div style="position: relative; width: 90%; margin: 0 auto;" class="wow fadeIn" data-wow-delay="">
+            <v-carousel hide-delimiters style="height: 644px;">
                 <template v-slot:prev="{ props }">
                     <span class="h-100 d-flex align-items-center btn-left btn-arrow">
                         <svg @click="props.onClick" class="text-light" xmlns="http://www.w3.org/2000/svg"
@@ -13,10 +13,8 @@
                         </svg>
                     </span>
                 </template>
-                <v-carousel-item
-                    src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2016/10/frontpage-hero-01.jpg"
-                    cover></v-carousel-item>
-                <v-carousel-item
+                <v-carousel-item src="/static/img/cover-home.jpg" cover></v-carousel-item>
+                <v-carousel-item height="100%"
                     src="https://demos.pixelgrade.com/osteria/wp-content/uploads/sites/25/2017/01/gastronomika-2-13.jpg"
                     cover></v-carousel-item>
                 <v-carousel-item
@@ -285,6 +283,7 @@
 
         <about></about>
 
+        <!-- feedback -->
         <div class="container section">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="m-0" style="font-family: kristi; font-size: 5em;">"</h1>
@@ -338,33 +337,63 @@
                 </v-carousel>
             </div>
         </div>
+        <!-- end feedback -->
 
+        <!-- especial -->
         <div class="container section wow fadeInUp">
             <div class="text-center">
                 <h1 class="mb-5">Most Especial Items</h1>
             </div>
             <div class="line"></div>
             <div class="row mt-15">
-                <div class="col-md-4 mb-5" v-for="n, i in 3" :key="i">
-                    <div class="box-item wow fadeInUp" :data-wow-delay="'0.' + i + 's'">
+                <div class="col-md-4 mb-5">
+                    <div class="box-item wow fadeInUp" data-wow-delay="0.2s">
                         <div class="wp-image-box">
-                            <img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" alt="">
+                            <img src="/static/img/especial-1.jpg" alt="">
                         </div>
                         <div class="content-box">
                             <p class="title-box">
                                 This is name item
                             </p>
                             <p class="sub-title-box">
-                                this is name sub_item
+                                This is sub name item
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="box-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="wp-image-box">
+                            <img src="/static/img/especial-3.jpg" alt="">
+                        </div>
+                        <div class="content-box">
+                            <p class="title-box">
+                                This is name item
+                            </p>
+                            <p class="sub-title-box">
+                                This is sub name item
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="box-item wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="wp-image-box">
+                            <img src="/static/img/especial-2.jpg" alt="">
+                        </div>
+                        <div class="content-box">
+                            <p class="title-box">
+                                This is name item
+                            </p>
+                            <p class="sub-title-box">
+                                This is sub name item
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
+        <!-- end especial -->
     </div>
 </template>
 <script>

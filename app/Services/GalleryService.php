@@ -76,10 +76,28 @@ class GalleryService extends BaseService
                 }
                 $mediaOld->delete();
             }
+            $this->uploadImage($request->image, $gallery->id, Media::$media_type['GALLERY'], 'galleries');
         }
 
-        $this->uploadImage($request->image, $gallery->id, Media::$media_type['GALLERY'], 'galleries');
 
         return $gallery;
+    }
+
+    /**
+     *
+     */
+    public function delete($request)
+    {
+        $gallery = $this->galleryRepository->show($request->galleryId);
+
+        $media = $this->mediaRepository->getImage($gallery->id, Media::$media_type['GALLERY']);
+        if ($media) {
+            if (Storage::exists('public/' . $media->path)) {
+                Storage::delete('public/' . $media->path);
+            }
+            $media->delete();
+        }
+
+        return $gallery->delete();
     }
 }

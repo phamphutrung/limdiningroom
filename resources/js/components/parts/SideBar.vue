@@ -1,11 +1,11 @@
 <template>
-    <a-layout-sider v-model:collapsed="collapsed" collapsible collapsedWidth="4.6em">
-        <div class="logo text-light text-center mt-6 fw-bold" style="height: 1em;">
+    <a-layout-sider v-model:collapsed="collapsed" collapsible collapsedWidth="4.6em" width="15em">
+        <div class="logo text-light text-center fw-bold py-3 px-4">
             <router-link :to="{ name: 'home' }">
-                <p class="m-0 text-light">LOGO</p>
+                <img src="/static/img/logo-white.png" alt="logo" style="width: 100%;">
             </router-link>
         </div>
-        <a-divider style="height: 1px; background-color: #7cb305" />
+        <a-divider style="height: 1px; background-color: #7cb305; margin: 5px 0 15px 0;" />
         <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
             <a-menu-item key="food-manager">
                 <v-icon class="me-4" icon="mdi-food"></v-icon>
