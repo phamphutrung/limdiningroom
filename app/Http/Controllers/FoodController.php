@@ -58,4 +58,14 @@ class FoodController extends BaseController
     {
         return $this->foodService->update($request);
     }
+
+    /**
+     *
+     */
+    public function delete(Request $request)
+    {
+        return $this->foodService->delete($request)
+            ? $this->jsonRender()
+            : throw new BadRequestException();
+    }
 }

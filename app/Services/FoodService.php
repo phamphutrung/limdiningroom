@@ -116,4 +116,34 @@ class FoodService extends BaseService
 
         return $food;
     }
+
+    /**
+     *
+     */
+    public function delete($request)
+    {
+        $food = $this->foodRepository->show($request->foodId);
+
+        $media = $this->mediaRepository->getImage($food->id, Media::$media_type['FOOD']);
+        if ($media) {
+            if (Storage::exists('public/' . $media->path)) {
+                Storage::delete('public/' . $media->path);
+            }
+            $media->delete();
+        }
+
+        $medias = $this->mediaRepository->getImage($food->id, Media::$media_type['FOOD'], true);
+        if ($medias) {
+            foreach ($medias as $media) {
+                if ($media) {
+                    if (Storage::exists('public/' . $media->path)) {
+                        Storage::delete('public/' . $media->path);
+                    }
+                    $media->delete();
+                }
+            }
+        }
+
+        return $food->delete();
+    }
 }

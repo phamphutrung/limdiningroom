@@ -208,7 +208,7 @@ export default {
                     'content-type': 'multipart/form-data',
                 }
             }).then((res) => {
-                this.saving = true;
+                this.saving = false;
                 this.$toast.success('Update successfully')
             }).catch((err) => {
                 this.saving = false;

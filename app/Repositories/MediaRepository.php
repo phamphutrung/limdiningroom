@@ -16,7 +16,12 @@ class MediaRepository extends BaseRepository
      */
     public function getImage($media_id, $media_type, $is_sub = false)
     {
-        return $this->model::query()
+        return $is_sub
+            ? $this->model::query()
+            ->where('media_id', $media_id)
+            ->where('media_type', $media_type)
+            ->where('is_sub', $is_sub)->get()
+            : $this->model::query()
             ->where('media_id', $media_id)
             ->where('media_type', $media_type)
             ->where('is_sub', $is_sub)->first();

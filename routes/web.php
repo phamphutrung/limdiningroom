@@ -29,6 +29,7 @@ Route::middleware([])->group(function () {
         Route::post('/', [FoodController::class, 'create'])->name('food.create');
         Route::post('/update', [FoodController::class, 'update'])->name('food.update');
         Route::get('/show', [FoodController::class, 'show'])->name('food.show');
+        Route::delete('/', [FoodController::class, 'delete'])->name('food.delete');
     });
 
     Route::prefix('/galleries')->group(function () {

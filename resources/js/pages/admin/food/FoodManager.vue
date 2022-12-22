@@ -19,16 +19,16 @@
                         </div>
                         <a-divider style="height: 1px; background-color: #7cb305" />
 
-                        <a-table :columns="columns" :data-source="menus" :pagination="false">
+                        <a-table :columns="columns" :data-source="foods" :pagination="false">
                             <template #bodyCell="{ column, record }">
                                 <template v-if="column.key === 'action'">
                                     <router-link :to="{ name: 'food-edit', params: { id: record.id } }">
-                                        <a-button class="me-1">
+                                        <a-button class="me-1 text-dark">
                                             <v-icon icon="mdi-border-color" />
                                         </a-button>
                                     </router-link>
                                     <a-popconfirm title="Are you sure delete?" ok-text="Yes, Delete now"
-                                        cancel-text="No" @confirm="{}">
+                                        cancel-text="No" @confirm="handleDelete(record.id)">
                                         <a-button>
                                             <v-icon icon="mdi-delete-circle" />
                                         </a-button>
@@ -37,6 +37,11 @@
                                 <template v-if="column.key === 'thumbnail'">
                                     <a-image :width="'7em'"
                                         :src="record.image == null ? '/static/img/defaultImage.jpg' : '/storage/' + record.image" />
+                                </template>
+                                <template v-if="column.key === 'price'">
+                                    <strong> {{ record.price + ' ' }}</strong> <span :style="{ fontSize: '0.8em' }">{{
+                                            record.currency
+                                    }}</span>
                                 </template>
                                 <template v-if="column.key === 'status'">
                                     <v-chip v-if="record.status == 1" prepend-icon="mdi-check-circle-outline"
@@ -83,7 +88,7 @@ export default {
 
     data() {
         return {
-            menus: [],
+            foods: [],
             columns: [
                 { title: 'Image', dataIndex: 'image', key: 'thumbnail' },
                 { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -98,21 +103,37 @@ export default {
     },
 
     methods: {
-        async getListMenu() {
+        async getListFood() {
             await request.get(this.$dataUrl.foodList).then((res) => {
-                let menus = res.data.payload.data;
-                menus.forEach((val, index) => {
+                let foods = res.data.payload.data;
+                foods.forEach((val, index) => {
                     val['key'] = index;
                 });
-                this.menus = menus;
+                this.foods = foods;
             })
-            console.log(this.menus);
+            console.log(this.foods);
 
+        },
+        async handleDelete(id) {
+            await request.delete(this.$dataUrl.foodList, {
+                params: {
+                    foodId: id
+                }
+            }).then((res) => {
+                this.$toast.success('Deleted successfully')
+                this.foods.forEach((item, index) => {
+                    if (item.id == id) {
+                        this.foods.splice(index, 1)
+                        return false
+                    }
+                });
+            })
         }
+
     },
 
     created() {
-        this.getListMenu()
+        this.getListFood()
 
     }
 }

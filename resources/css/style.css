@@ -87,6 +87,14 @@ h6 {
     max-height: 90px;
 } */
 
+.navbar-brand {
+    width: 7.8em;
+}
+.navbar-brand img {
+    /* max-height: 45px; */
+    width: 100%;
+}
+
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: fixed;
@@ -131,14 +139,6 @@ h6 {
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    .navbar-brand {
-        width: 7.8em;
-    }
-    .navbar-brand img {
-        /* max-height: 45px; */
-        width: 100%;
     }
 }
 /* ** end navbar ** */

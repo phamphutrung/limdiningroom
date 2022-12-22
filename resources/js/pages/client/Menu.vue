@@ -36,149 +36,24 @@
                                 <div class="cover-menu cover-mn-1">
 
                                 </div>
-                                <div class="container section wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6 mb-6">
+                                <div class="container mt-16 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="row gx-5 gy-4">
+                                        <div class="col-lg-6 mb-10" v-for="food, index in foods" :key="index">
                                             <div class="d-flex align-items-center">
                                                 <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/297884904_125255010240187_5869468143190977924_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=gYVp2zD_iaoAX8d13Z_&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-hkg4-1.xx&oh=00_AfBEZyj40kSCsByoQJZjoEX4lEgNyLjYqrnRjHFp5a8f2g&oe=639591B4"
-                                                    alt="" style="width: 110px;">
+                                                    :src="food.image ? '/storage/' + food.image : '/static/img/defaultImage.jpg'"
+                                                    alt="" style="width: 8.7em;">
                                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                                     <h5
                                                         class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
+                                                        <span>{{ food.name }}</span>
+                                                        <span class="">{{ `${food.price}` }} <small
+                                                                class="text-muted">{{ food.currency
+                                                                }}</small></span>
+
                                                     </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/297868488_125254903573531_470806379585356551_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=kZIGb5Jg74QAX8HZ83Y&_nc_ht=scontent-hkg4-1.xx&oh=00_AfAzUHZx6lJP3KR5sjLeepCrIqbWypiRWvqo6W_PsruGMw&oe=63962815"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/297632175_125254916906863_8295190471366431834_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=0sPsluE_9oQAX9J636Z&_nc_ht=scontent-hkg4-2.xx&oh=00_AfCN__ScxSfrs_1jd2CC98WQRHDxYhVj8nQkXKggiKWVNA&oe=6394A379"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/297955878_125255006906854_4923308110319983165_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=zXt8jpKUsqAAX9j6cS3&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-hkg4-1.xx&oh=00_AfAyxNxpV16vvIad8Ac_wASXX16__nEegUTrxUPibj6wxw&oe=63962B1A"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/297884904_125255010240187_5869468143190977924_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=gYVp2zD_iaoAX8d13Z_&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-hkg4-1.xx&oh=00_AfBEZyj40kSCsByoQJZjoEX4lEgNyLjYqrnRjHFp5a8f2g&oe=639591B4"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/297286303_125255040240184_821288380641610594_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=iHoRxYEAJtEAX-KpJYe&_nc_ht=scontent-hkg4-2.xx&oh=00_AfAspHSkjKm0A3XnNn7cumWJoXxF-bBbOdfQTXY0htIMDQ&oe=63952410"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/297884904_125255010240187_5869468143190977924_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=gYVp2zD_iaoAX8d13Z_&tn=1lPppkSVnK9GXqDT&_nc_ht=scontent-hkg4-1.xx&oh=00_AfBEZyj40kSCsByoQJZjoEX4lEgNyLjYqrnRjHFp5a8f2g&oe=639591B4"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-6">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    src="https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/297286303_125255040240184_821288380641610594_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=iHoRxYEAJtEAX-KpJYe&_nc_ht=scontent-hkg4-2.xx&oh=00_AfAspHSkjKm0A3XnNn7cumWJoXxF-bBbOdfQTXY0htIMDQ&oe=63952410"
-                                                    alt="" style="width: 110px;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>Chicken Burger</span>
-                                                        <span class="">$115</span>
-                                                    </h5>
-                                                    <small class="text-detail" style="font-weight: 300;">Ipsum ipsum
-                                                        clita erat
-                                                        amet dolor justo
-                                                        diam</small>
+                                                    <small class="text-detail"
+                                                        style="font-weight: 300; font-size: .9em;">{{ food.sub_desc }}</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -193,7 +68,7 @@
                                 <div class="cover-menu cover-mn-2">
 
                                 </div>
-                                <div class="container section wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="container mt-16 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="row g-4">
                                         <div class="col-lg-6 mb-6">
                                             <div class="d-flex align-items-center">
@@ -279,6 +154,7 @@
 </template>
 
 <script>
+import request from '../../services/request';
 export default {
     data() {
         return {
@@ -286,8 +162,19 @@ export default {
             items: [
                 'food', 'wine'
             ],
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            foods: [],
         }
+    },
+    methods: {
+        async getListFood() {
+            await request.get(this.$dataUrl.foodList).then((res) => {
+                this.foods = res.data.payload.data;
+            })
+            console.log(this.foods);
+        },
+    },
+    created() {
+        this.getListFood()
     },
 }
 </script>
