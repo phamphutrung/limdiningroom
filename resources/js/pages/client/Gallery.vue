@@ -11,7 +11,7 @@
     </div>
 
 
-    <div class="container-fluid wow fadeInUp">
+    <div class="container-fluid">
         <!-- <div class="row mt-6 d-flex justify-center">
             <div class="col-md-5 col-sm-5 col-lg-4 text-center">
                 <v-tabs fixed-tabs bg-color="" v-model="tab">
@@ -22,7 +22,7 @@
                 </v-tabs>
             </div>
         </div> -->
-        <div class="row mt-6 d-flex justify-center">
+        <div class="row mt-6 d-flex justify-center wow fadeInUp" data-wow-delay="0.01s">
             <div class="col-md-5 col-sm-5 col-lg-4 text-center">
                 <play-circle-outlined class="m-4" @click="show" style="font-size: 1.5em;" />
                 <!-- <h1>Gallery</h1> -->
@@ -62,9 +62,9 @@
         </v-window> -->
         <div class="mt-10 mb-16" v-viewer>
             <div class="row mx-5">
-                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" v-for="(gallery, index) in galleries" :key="index">
+                <div class="col-lg-3 col-md-4 col-sm-6" v-for="(gallery, index) in galleries" :key="index">
                     <div class="image-gallery">
-                        <img class="" :data-wow-delay="`0.${index + 1}s`"
+                        <img class="wow fadeInUp" :data-wow-delay="`0.${index + 1}s`"
                             :style="{ objectFit: 'cover', overflow: 'hidden' }" :src="'/storage/' + gallery.image">
                         <div class="title-gallery">
                             <p class="m-1 ms-2">{{ gallery.title }}</p>
