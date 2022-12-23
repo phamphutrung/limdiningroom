@@ -25,7 +25,11 @@
                             <a-select-option value="3">3 Person</a-select-option>
                             <a-select-option value="4">4 Person</a-select-option>
                             <a-select-option value="5">5 Person</a-select-option>
-
+                            <a-select-option value="6">6 Person</a-select-option>
+                            <a-select-option value="7">7 Person</a-select-option>
+                            <a-select-option value="8">8 Person</a-select-option>
+                            <a-select-option value="9">9 Person</a-select-option>
+                            <a-select-option value="10">10 Person</a-select-option>
                         </a-select>
                     </div>
                     <div class="mx-3  text-uppercase sub-text wow zoomIn" data-wow-delay="0.4s">For</div>

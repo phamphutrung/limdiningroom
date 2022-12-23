@@ -24,10 +24,11 @@
                     <h2 class="d-inline-block" style="font-size: 48px; letter-spacing: .07em;">Book a table</h2>
                     <div class="line"></div>
                     <div class="border mb-6 px-3 py-1 wow fadeInUp" data-wow-delay="0.1s">
-                        <a-input v-model:value="value" placeholder="Full Name" :bordered="false" class="w-100" />
+                        <a-input v-model:value="fullName" placeholder="Full Name" :bordered="false" class="w-100" />
+
                     </div>
                     <div class="border mb-6 px-3 py-1 wow fadeInUp" data-wow-delay="0.15s">
-                        <a-input v-model:value="value" placeholder="Phone Number" :bordered="false" class="w-100" />
+                        <a-input v-model:value="phoneNumber" placeholder="Phone Number" :bordered="false" class="w-100" />
                     </div>
                     <div class="border mb-6 px-3 py-1 wow fadeInUp" data-wow-delay="0.2s">
                         <a-select :bordered="false" v-model:value="amountPerson" class="select-person w-100 text-start"
@@ -43,7 +44,8 @@
                         <a-date-picker v-model:value="date" :bordered="false" :style="{ width: '100%' }" />
                     </div>
                     <div class="border mb-6 px-3 py-1 wow fadeInUp" data-wow-delay="0.3s">
-                        <a-date-picker :bordered="false" :picker="'time'" :style="{ width: '100%' }" />
+                        <a-date-picker v-model:value="time" :bordered="false" :picker="'time'"
+                            :style="{ width: '100%' }" />
                     </div>
                     <button class="text-uppercase border btn-global w-100 wow fadeInUp" data-wow-delay="0.35s"
                         style="font-size: 13px; letter-spacing: .2em;">Book a table</button>
@@ -61,7 +63,9 @@ export default {
         return {
             amountPerson: this.$route.query.amount,
             date: null,
-            value: null
+            time: null,
+            fullName: null,
+            phoneNumber: null
         }
     },
     created() {

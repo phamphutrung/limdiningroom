@@ -9,8 +9,8 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="section">
+    <div class="container-fluid">
+        <div class="section container">
             <div class="row">
                 <div class="col-md-3 wow fadeInUp" data-wow-delay="0.1s">
                     <h6><i class="fa-solid fa-location-dot"></i> Address</h6>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="row section">
+        <div class="container-fluid section">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5427.195562057517!2d108.32408609898435!3d15.877250897274164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31420f2b61849189%3A0xe4e3d806a872e7a2!2sLim%20Dining%20Room!5e0!3m2!1svi!2s!4v1671734248267!5m2!1svi!2s"
                 width="100%" height="450" style="border:0; color: #000;o" allowfullscreen="" loading="lazy"

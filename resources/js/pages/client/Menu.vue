@@ -38,24 +38,27 @@
                                 </div>
                                 <div class="container mt-16 wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="row gx-5 gy-4">
-                                        <div class="col-lg-6 mb-10" v-for="food, index in foods" :key="index">
-                                            <div class="d-flex align-items-center">
-                                                <img class="flex-shrink-0 img-fluid"
-                                                    :src="food.image ? '/storage/' + food.image : '/static/img/defaultImage.jpg'"
-                                                    alt="" style="width: 8.7em;">
-                                                <div class="w-100 d-flex flex-column text-start ps-4">
-                                                    <h5
-                                                        class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                        <span>{{ food.name }}</span>
-                                                        <span class="">{{ `${food.price}` }} <small
-                                                                class="text-muted">{{ food.currency
-                                                                }}</small></span>
+                                        <div class="col-lg-6 mb-10 menu-item" v-for="food, index in foods" :key="index">
+                                            <router-link :to="{}">
+                                                <div class="d-md-flex align-items-center">
+                                                    <img class="flex-shrink-0 img-fluid mb-3 mb-md-0"
+                                                        :src="food.image ? '/storage/' + food.image : '/static/img/defaultImage.jpg'"
+                                                        alt="">
+                                                    <div class="w-100 d-flex flex-column text-start ps-md-5">
+                                                        <p
+                                                            class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
+                                                            <span>{{ food.name }}</span>
+                                                            <span class="">{{ `${food.price}` }} <small
+                                                                    class="text-muted">{{ food.currency
+                                                                    }}</small></span>
 
-                                                    </h5>
-                                                    <small class="text-detail"
-                                                        style="font-weight: 300; font-size: .9em;">{{ food.sub_desc }}</small>
+                                                        </p>
+                                                        <small class="text-detail text-black"
+                                                            style="font-weight: 300; font-size: .9em;">{{ food.sub_desc
+                                                            }}</small>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -207,5 +210,20 @@ export default {
 .cover-mn-2 {
     background-image: url('/static/img/cover-wine.jpg');
     background-position: 0 -480px;
+}
+
+.menu-item {
+    cursor: pointer;
+}
+
+.menu-item img {
+    transition: 0.5s;
+    width: 8.7em;
+}
+
+@media (min-width: 768px) {
+    .menu-item:hover img {
+        transform: scale(120%);
+    }
 }
 </style>
