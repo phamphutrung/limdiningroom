@@ -44,16 +44,16 @@
                                                     <img class="flex-shrink-0 img-fluid mb-3 mb-md-0"
                                                         :src="food.image ? '/storage/' + food.image : '/static/img/defaultImage.jpg'"
                                                         alt="">
-                                                    <div class="w-100 d-flex flex-column text-start ps-md-5">
+                                                    <div class="w-100 d-flex flex-column text-start ps-md-5 text-black">
                                                         <p
                                                             class="d-flex ms-0 m-1 justify-content-between border-bottom pb-2">
-                                                            <span>{{ food.name }}</span>
+                                                            <span class="me-9">{{ food.name }}</span>
                                                             <span class="">{{ `${food.price}` }} <small
                                                                     class="text-muted">{{ food.currency
                                                                     }}</small></span>
 
                                                         </p>
-                                                        <small class="text-detail text-black"
+                                                        <small class="text-detail"
                                                             style="font-weight: 300; font-size: .9em;">{{ food.sub_desc
                                                             }}</small>
                                                     </div>

@@ -26,12 +26,12 @@
                             <a-form-item label="Name">
                                 <a-input v-model:value="form.name" placeholder="Enter food name" />
                             </a-form-item>
-                            <a-form-item label="Price" :wrapperCol="{ span: 3, offset: 0 }">
+                            <a-form-item label="Price" :wrapperCol="{ span: 4, offset: 0 }">
                                 <a-input-number :min="1" v-model:value="form.price" placeholder="Enter food price"
                                     :formatter="value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
                                     :parser="value => value.replace(/\$\s?|(,*)/g, '')">
                                     <template #addonAfter>
-                                        <a-select v-model:value="form.currency" style="width: 5em">
+                                        <a-select v-model:value="form.currency" style="width: 6em">
                                             <a-select-option value="VND">VND</a-select-option>
                                             <a-select-option value="USD">USD</a-select-option>
                                         </a-select>
