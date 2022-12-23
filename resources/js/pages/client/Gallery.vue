@@ -142,25 +142,28 @@ export default {
     transition: all 1s;
 }
 
-.image-gallery:hover .title-gallery {
-    bottom: 0;
-}
-
 .image-gallery .title-gallery {
     width: 100%;
-    height: 20%;
     position: absolute;
-    bottom: -20%;
-    left: 0;
+    right: calc(-100%);
+    bottom: 0;
     background-color: rgb(255, 255, 255);
     z-index: 3;
     background-clip: content-box;
-    transition: 0.7s;
+    transition: .6s;
 }
 
 .image-gallery:hover img {
     transform: scale(110%);
 }
+
+.image-gallery:hover .title-gallery {
+    right: 0;
+}
+
+/* .image-gallery:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+} */
 
 .image-gallery img {
     width: 100%;
