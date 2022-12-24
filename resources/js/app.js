@@ -19,6 +19,10 @@ import Toaster from '@meforma/vue-toaster';
 // editor
 import CKEditor from '@ckeditor/ckeditor5-vue';
 
+//  play image
+import 'viewerjs/dist/viewer.css'
+import VueViewer from 'v-viewer'
+
 import App from './App.vue'
 import router from './router';
 
@@ -35,16 +39,17 @@ app.config.globalProperties.$auth = window.auth;
 app.config.globalProperties.$dataUrl = window.dataUrl;
 
 app.use(CKEditor)
+app.use(VueViewer)
 app.use(router)
 app.use(vuetify)
 app.use(Antd)
 app.use(Toaster,
-        {
-            duration: 4000,
-            position: 'top',
-            max: 3
-        }
-    )
+    {
+        duration: 4000,
+        position: 'top',
+        max: 3
+    }
+)
 
 // app.component('app', App)
 
