@@ -46,6 +46,9 @@ class GalleryService extends BaseService
         return $this->galleryRepository->list();
     }
 
+    /**
+     *
+     */
     public function create($request)
     {
         $attributes = $request->except('image');
@@ -78,7 +81,6 @@ class GalleryService extends BaseService
             }
             $this->uploadImage($request->image, $gallery->id, Media::$media_type['GALLERY'], 'galleries');
         }
-
 
         return $gallery;
     }

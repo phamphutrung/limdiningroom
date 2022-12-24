@@ -302,25 +302,41 @@
                             </svg>
                         </span>
                     </template>
-                    <v-carousel-item v-for="(n, i) in 2" :key="i">
+                    <v-carousel-item>
                         <!-- <v-sheet height=""> -->
                         <div style="height: 100%;">
                             <div class="d-flex text-center justify-content-center align-items-center">
                                 <div class="w-75">
-                                    <h1 class="mb-13">Lorem ipsum dolor sit .</h1>
+                                    <h1 class="mb-13">Chris O'Neill</h1>
                                     <div class="line"></div>
-                                    <p class="mt-12" style="font-size: 1.5em; color: #5b5b5b; font-weight: 300;">Lorem
-                                        ipsum dolor sit amet consectetur sit amet consectetur sit amet consectetur sit
-                                        amet
-                                        consectetur, adipisicing
-                                        elit. Asperiores natus et
-                                        nobis?</p>
+                                    <p class="mt-12" style="font-size: 1.5em; color: #5b5b5b; font-weight: 300;">Amazing
+                                        lunch with the wife, I had a main of beef ravioli and Jess had a starter and
+                                        main. She had a carafe of Prosecco and I had 5 bottles of lager, 1,000,000
+                                        VND!!!! Thank you!!
+                                    </p>
                                     <p style="font-weight: 500; font-size: 1.3em;">Lorem ipsum dolor, sit amet
                                         consectetur adipisicing.</p>
                                 </div>
                             </div>
                         </div>
                         <!-- </v-sheet> -->
+
+                    </v-carousel-item>
+                    <v-carousel-item>
+                        <div style="height: 100%;">
+                            <div class="d-flex text-center justify-content-center align-items-center">
+                                <div class="w-75">
+                                    <h1 class="mb-13">Happy Smile</h1>
+                                    <div class="line"></div>
+                                    <p class="mt-12" style="font-size: 1.5em; color: #5b5b5b; font-weight: 300;">Food is
+                                        so delicious, creative cuisine, cosy atmosphere, healthy options, Outdoor
+                                        dining, Child-friendly ....
+                                    </p>
+                                    <p style="font-weight: 500; font-size: 1.3em;">Lorem ipsum dolor, sit amet
+                                        consectetur adipisicing.</p>
+                                </div>
+                            </div>
+                        </div>
                     </v-carousel-item>
                     <template v-slot:next="{ props }">
                         <span class="h-100 d-flex align-items-center btn-arrow-normal btn-right">

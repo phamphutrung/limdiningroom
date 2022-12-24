@@ -42,7 +42,9 @@ class GalleryController extends BaseController
      */
     public function create(Request $request)
     {
-        $this->galleryService->create($request);
+        return $this->galleryService->create($request)
+            ? $this->jsonRender()
+            : throw new BadRequestException();
     }
 
     /**

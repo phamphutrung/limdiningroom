@@ -22,21 +22,35 @@
                 </span>
             </a-menu-item>
             <a-menu-item key="gallery-manager">
-                <v-icon class="me-4" icon="mdi-image"></v-icon>
+                <v-icon class="me-4" icon="mdi-image-multiple"></v-icon>
                 <span>
                     Gallery Management
                     <router-link :to="{ name: 'gallery-manager' }"></router-link>
                 </span>
             </a-menu-item>
+            <a-menu-item key="event-manager">
+                <v-icon class="me-4" icon="mdi-calendar-multiple"></v-icon>
+                <span>
+                    Event Management
+                    <router-link :to="{ name: 'event-manager' }"></router-link>
+                </span>
+            </a-menu-item>
             <a-sub-menu key="sub1">
                 <template #title>
                     <span>
-                        <v-icon class="me-5" icon="mdi-diamond"></v-icon>
+                        <v-icon class="me-5" icon="mdi-account-multiple-outline"></v-icon>
                         <span>Customer</span>
                     </span>
                 </template>
-                <a-menu-item :class="{ marginLeft: '5em' }" key="feedback-manager">
-                    <v-icon icon="mdi-message-text-outline"></v-icon>
+                <a-menu-item :class="{ marginLeft: '1em' }" key="reserve-manager">
+                    <v-icon class="me-1" icon="mdi-timetable"></v-icon>
+                    <span>
+                        Reserve
+                        <router-link :to="{ name: 'feedback-manager' }"></router-link>
+                    </span>
+                </a-menu-item>
+                <a-menu-item :class="{ marginLeft: '1em' }" key="feedback-manager">
+                    <v-icon class="me-1" icon="mdi-message-text-outline"></v-icon>
                     <span>
                         Feedback
                         <router-link :to="{ name: 'feedback-manager' }"></router-link>

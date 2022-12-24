@@ -36,17 +36,18 @@
                 <h1 class="section-title ff-secondary text-center text-primary fw-normal">About Us</h1>
                 <div class="line"></div>
                 <h3 class="mb-4">Welcome to <i class="fa fa-utensils me-2"></i>Restoran</h3>
-                <p class="mb-4 text-detail">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-                    diam amet
-                    diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                <p class="mb-4 text-detail">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-                    diam amet
-                    diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
-                    dolore erat
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti illum, excepturi expedita atque
-                    eaque veniam?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis error et veritatis
-                    consectetur blanditiis omnis.
+                <p class="mb-4 text-detail">
+                    LIM DINING ROOM - A PEACEFUL FOOD SPACE IN THE MIDDLE OF AN old town
+                    .</p>
+                <p class="mb-4 text-detail">Depicted by ancient, contemplative features bearing the breath of old Hoi
+                    An, Lim Dining Room is hidden in traditional Vietnamese architecture combined with a minimalist and
+                    sophisticated Scandinavian interior style.
+                </p>
+                <p class="mb-4 text-detail">
+                    The impression in the design of Lim Dining Room is like a new breeze, weaving between rows of wooden
+                    houses, neatly painted in yellow lime. Along with the unique and high-class cuisine of Chef Alessio,
+                    this promises to be a place to enjoy a private and unique space in the heart of a prosperous
+                    commercial port.
                 </p>
                 <div class="row g-4 mb-4">
                     <div class="col-sm-6">

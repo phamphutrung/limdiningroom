@@ -16,10 +16,17 @@ import FoodManager from './pages/admin/food/FoodManager.vue';
 import FoodCreate from './pages/admin/food/FoodCreate.vue'
 import GalleryManager from './pages/admin/gallery/GalleryManager.vue';
 import GalleryCreate from './pages/admin/gallery/GalleryCreate.vue';
+import EventManager from './pages/admin/event/EventManager.vue';
+import EventCreate from './pages/admin/event/EventCreate.vue';
 import WineManager from './pages/admin/wine/WineManager.vue';
 import FeedBack from './pages/admin/FeedBack.vue';
+import Editor from './pages/admin/Editor.vue';
 
 const routes = [
+    {
+        path: '/editor',
+        component: Editor
+    },
     {
         path: '/',
         component: WebLayout,
@@ -107,16 +114,34 @@ const routes = [
                 meta: { title: 'Lim | Create Gallery' },
             },
             {
-                path: 'wine',
-                name: 'wine-manager',
-                component: WineManager,
-                meta: { title: 'Lim | Wine Gallery' },
-            },
-            {
                 path: 'gallery/edit/:id',
                 name: 'gallery-edit',
                 component: GalleryCreate,
                 meta: { title: 'Lim | Edit Gallery' }
+            },
+            {
+                path: 'event',
+                name: 'event-manager',
+                component: EventManager,
+                meta: { title: 'Lim | Event Management' }
+            },
+            {
+                path: 'event/create',
+                name: 'event-create',
+                component: EventCreate,
+                meta: { title: 'Lim | Create Event' }
+            },
+            {
+                path: 'event/edit/:id',
+                name: 'event-edit',
+                component: EventCreate,
+                meta: { title: 'Lim | Edit Event' }
+            },
+            {
+                path: 'wine',
+                name: 'wine-manager',
+                component: WineManager,
+                meta: { title: 'Lim | Wine Gallery' },
             },
             {
                 path: 'feedback',

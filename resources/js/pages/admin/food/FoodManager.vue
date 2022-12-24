@@ -68,7 +68,7 @@
                                     <v-window-item class="container"
                                         v-for="(val, index) in Object.entries(record.content)" :key="index"
                                         :value="val[0]">
-                                        {{ val[1] }}
+                                        <div v-html="val[1]"></div>
                                     </v-window-item>
                                 </v-window>
                             </template>
@@ -111,8 +111,6 @@ export default {
                 });
                 this.foods = foods;
             })
-            console.log(this.foods);
-
         },
         async handleDelete(id) {
             await request.delete(this.$dataUrl.foodList, {

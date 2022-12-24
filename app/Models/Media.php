@@ -14,6 +14,7 @@ class Media extends Model
     public static $media_type = [
         'FOOD' => 'food',
         'WINE' => 'wine',
-        'GALLERY' => 'gallery'
+        'GALLERY' => 'gallery',
+        'EVENT' => 'event'
     ];
 }

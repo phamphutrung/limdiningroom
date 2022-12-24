@@ -83,12 +83,14 @@
 
                             <a-form-item label="Content">
                                 <div class="d-flex" v-for="(item, index) in contents" :key="index"
-                                    :class="index == (contents.length - 1) ? 'mb-1' : 'mb-4'">
+                                    :class="index == (contents.length - 1) ? 'mb-1' : 'mb-13'">
                                     <div :style="{ width: contents.length > 1 ? '95%' : '100%' }">
                                         <a-input v-model:value="item.title" placeholder="Enter Title | ex: Introduce"
                                             class="mb-1" />
-                                        <a-textarea v-model:value="item.value" placeholder="Enter body for Introduce"
-                                            :rows="8" />
+                                        <!-- <a-textarea v-model:value="item.value" placeholder="Enter body for Introduce"
+                                            :rows="8" /> -->
+                                        <ckeditor :editor="editor" v-model="item.value" :config="editorConfig">
+                                        </ckeditor>
                                     </div>
                                     <div v-if="contents.length > 1" class="text-center ms-2 mt-2"
                                         style="cursor: pointer;">
@@ -117,6 +119,7 @@
 </template>
 <script lang="ts">
 import request from '../../../services/request.js';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
     components: {
@@ -124,6 +127,10 @@ export default {
     },
     data() {
         return {
+            editor: ClassicEditor,
+            editorConfig: {
+                toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', '|', 'blockQuote', 'insertTable', '|', 'undo', 'redo']
+            },
             form: {
                 name: '',
                 price: '',
