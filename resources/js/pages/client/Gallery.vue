@@ -63,8 +63,7 @@
         <div class="mt-10 mb-16" v-viewer>
             <div class="row mx-5">
                 <div class="col-lg-3 col-md-4 col-sm-6" v-for="(gallery, index) in galleries" :key="index">
-                    <div class="image-gallery wow fadeInUpBig" data-wow-duration="1.3s"
-                        :data-wow-delay="`0.${index + 1}s`">
+                    <div class="image-gallery wow fadeInUpBig" :data-wow-delay="`0.${index + 1}s`">
                         <img :style="{ objectFit: 'cover', overflow: 'hidden' }" :src="'/storage/' + gallery.image">
                         <div class="title-gallery">
                             <p class="m-1 ms-2">{{ gallery.title }}</p>
